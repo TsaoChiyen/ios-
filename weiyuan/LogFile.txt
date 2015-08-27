@@ -1,0 +1,112 @@
+/* 
+  LogFile.strings
+  chengxin
+
+  Created by Tsao Chiyen on 15-8-6.
+  Copyright (c) 2015年 dreamisland. All rights reserved.
+*/
+2015-08-06 18:17:52.482 chengxin[10897:125889] < AppDelegate.m:(194) > Forced to leave the server
+2015-08-06 18:17:52.483 chengxin[10897:125889] < StRequest.m:(212) > URL : http://121.40.214.35:8000/index.php/user/api/removeNoticeHostForIphone
+2015-08-06 18:17:52.483 chengxin[10897:125889] < StRequest.m:(105) > POST BODY (原始数据):
+uid=200424
+2015-08-06 18:17:52.484 chengxin[10897:125889] < AppDelegate.m:(196) > Chat System offline
+2015-08-06 18:17:52.484 chengxin[10897:125889] < AppDelegate.m:(198) > Exit system
+2015-08-06 18:17:52.535 chengxin[10897:125889] < StRequest.m:(212) > URL : http://121.40.214.35:8000/index.php/shop/api/categroyList
+2015-08-06 18:17:52.536 chengxin[10897:125889] < StRequest.m:(105) > POST BODY (原始数据):
+2015-08-06 18:17:52.697 chengxin[10897:125889] < StRequest.m:(283) > connectionDidFinishLoading
+{"data":{},"state":{"code":0,"msg":"\u64cd\u4f5c\u6210\u529f","debugMsg":"","url":"User\/Api\/removeNoticeHostForIphone"}}
+2015-08-06 18:17:52.765 chengxin[10897:125889] < StRequest.m:(283) > connectionDidFinishLoading
+{"data":[{"id":"1","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/4.png","name":"\u5973\u88c5","vieworder":"0"},{"id":"2","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/3.png","name":"\u7537\u88c5","vieworder":"0"},{"id":"3","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/7.png","name":"\u978b\u5305","vieworder":"0"},{"id":"4","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/2.png","name":"\u6bcd\u5a74","vieworder":"0"},{"id":"5","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/1.png","name":"\u5316\u5986","vieworder":"0"},{"id":"6","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/6.png","name":"\u6570\u7801","vieworder":"0"},{"id":"7","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/8.png","name":"\u4f11\u95f2","vieworder":"0"},{"id":"11","logo":"http:\/\/119.84.73.193\/Uploads\/Picture\/shop\/20150716\/s_dae1d0540f8f548256b5f4bbb9ee4239.png","name":"\u827a\u672f","vieworder":"0"}],"state":{"code":0,"msg":"","debugMsg":"","url":"Shop\/Api\/categroyList"}}
+2015-08-06 18:17:53.980 chengxin[10897:125889] < StRequest.m:(212) > URL : http://121.40.214.35:8000/index.php/user/api/login
+2015-08-06 18:17:53.980 chengxin[10897:125889] < StRequest.m:(105) > POST BODY (原始数据):
+phone=15923562971&password=111111
+2015-08-06 18:17:54.115 chengxin[10897:125889] < StRequest.m:(283) > connectionDidFinishLoading
+{"data":{"uid":"200424","sort":"t","phone":"15923562971","password":"696447","nickname":"tcy","headsmall":"","headlarge":"","gender":"2","sign":"","province":"","city":"","isfriend":0,"isblack":"0","verify":"1","isstar":"0","remark":"","getmsg":"0","fauth1":"0","fauth2":"0","picture1":"http%3A%2F%2F121.40.214.35%3A8000%2FUploads%2FPicture%2Fshare%2F20150803%2Fs_85be81310e5723ac3e4aff0","picture2":"","picture3":"","cover":"","lat":"29.584643","lng":"106.514924","distance":-1,"isshop":0,"createtime":"1438066144"},"state":{"code":0,"msg":"","debugMsg":"","url":"User\/Api\/login"}}
+2015-08-06 18:17:54.650 chengxin[10897:125889] registerForRemoteNotificationTypes: is not supported in iOS 8.0 and later.
+2015-08-06 18:17:54.653 chengxin[10897:125889] < ViewController.m:(244) > 更新总的未读消息数 : 0
+2015-08-06 18:17:54.653 chengxin[10897:125889] < AppDelegate.m:(219) > Successful login system
+2015-08-06 18:17:54.654 chengxin[10897:125889] < XMPPManager.m:(93) > 发送连接请求 JID:200424@121.40.214.35/localhost.localdomain
+2015-08-06 18:17:54.685 chengxin[10897:125889] < StRequest.m:(212) > URL : http://121.40.214.35:8000/index.php/user/api/newFriend
+2015-08-06 18:17:54.685 chengxin[10897:125889] < StRequest.m:(105) > POST BODY (原始数据):
+phone=13640504972%2C15923562971&uid=200424
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <?xml version='1.0'?>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <?xml version='1.0'?>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <?xml version='1.0'?>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <?xml version='1.0'?>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <?xml version='1.0'?>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <?xml version='1.0'?>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <?xml version='1.0'?>
+2015-08-06 18:17:54.730 chengxin[10897:125889] < XMPPManager.m:(145) > -[XMPPManager xmppStream:socketDidConnect:]
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0' to='121.40.214.35'>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0' to='121.40.214.35'>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0' to='121.40.214.35'>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0' to='121.40.214.35'>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0' to='121.40.214.35'>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0' to='121.40.214.35'>
+2015-08-06 18:17:54:730 chengxin[10897:7137] SEND: <stream:stream xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0' to='121.40.214.35'>
+2015-08-06 18:17:54.818 chengxin[10897:125889] < StRequest.m:(283) > connectionDidFinishLoading
+{"data":[],"state":{"code":0,"msg":"","debugMsg":"","url":"User\/Api\/newFriend"}}
+2015-08-06 18:17:55:071 chengxin[10897:7137] RECV: <stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="shop" id="f4d1aadf" stream1:lang="en" version="1.0"/>
+2015-08-06 18:17:55:071 chengxin[10897:7137] RECV: <stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="shop" id="f4d1aadf" stream1:lang="en" version="1.0"/>
+2015-08-06 18:17:55:071 chengxin[10897:7137] RECV: <stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="shop" id="f4d1aadf" stream1:lang="en" version="1.0"/>
+2015-08-06 18:17:55:071 chengxin[10897:7137] RECV: <stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="shop" id="f4d1aadf" stream1:lang="en" version="1.0"/>
+2015-08-06 18:17:55:071 chengxin[10897:7137] RECV: <stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="shop" id="f4d1aadf" stream1:lang="en" version="1.0"/>
+2015-08-06 18:17:55:071 chengxin[10897:7137] RECV: <stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="shop" id="f4d1aadf" stream1:lang="en" version="1.0"/>
+2015-08-06 18:17:55:071 chengxin[10897:7137] RECV: <stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="shop" id="f4d1aadf" stream1:lang="en" version="1.0"/>
+2015-08-06 18:17:55:139 chengxin[10897:8743] RECV: <stream:features xmlns:stream="http://etherx.jabber.org/streams"><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism><mechanism>ANONYMOUS</mechanism><mechanism>CRAM-MD5</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method></compression><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+2015-08-06 18:17:55:139 chengxin[10897:8743] RECV: <stream:features xmlns:stream="http://etherx.jabber.org/streams"><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism><mechanism>ANONYMOUS</mechanism><mechanism>CRAM-MD5</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method></compression><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+2015-08-06 18:17:55:139 chengxin[10897:8743] RECV: <stream:features xmlns:stream="http://etherx.jabber.org/streams"><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism><mechanism>ANONYMOUS</mechanism><mechanism>CRAM-MD5</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method></compression><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+2015-08-06 18:17:55:139 chengxin[10897:8743] RECV: <stream:features xmlns:stream="http://etherx.jabber.org/streams"><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism><mechanism>ANONYMOUS</mechanism><mechanism>CRAM-MD5</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method></compression><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+2015-08-06 18:17:55:139 chengxin[10897:8743] RECV: <stream:features xmlns:stream="http://etherx.jabber.org/streams"><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism><mechanism>ANONYMOUS</mechanism><mechanism>CRAM-MD5</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method></compression><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+2015-08-06 18:17:55:139 chengxin[10897:8743] RECV: <stream:features xmlns:stream="http://etherx.jabber.org/streams"><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism><mechanism>ANONYMOUS</mechanism><mechanism>CRAM-MD5</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method></compression><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+2015-08-06 18:17:55:139 chengxin[10897:8743] RECV: <stream:features xmlns:stream="http://etherx.jabber.org/streams"><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>DIGEST-MD5</mechanism><mechanism>PLAIN</mechanism><mechanism>ANONYMOUS</mechanism><mechanism>CRAM-MD5</mechanism></mechanisms><compression xmlns="http://jabber.org/features/compress"><method>zlib</method></compression><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+2015-08-06 18:17:59.914 chengxin[10897:125889] < XMPPManager.m:(173) > -[XMPPManager xmppStreamDidConnect:]
+2015-08-06 18:18:02:053 chengxin[10897:607] SEND: <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="DIGEST-MD5"/>
+2015-08-06 18:18:02:053 chengxin[10897:607] SEND: <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="DIGEST-MD5"/>
+2015-08-06 18:18:02:053 chengxin[10897:607] SEND: <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="DIGEST-MD5"/>
+2015-08-06 18:18:02:053 chengxin[10897:607] SEND: <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="DIGEST-MD5"/>
+2015-08-06 18:18:02:053 chengxin[10897:607] SEND: <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="DIGEST-MD5"/>
+2015-08-06 18:18:02:053 chengxin[10897:607] SEND: <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="DIGEST-MD5"/>
+2015-08-06 18:18:02:053 chengxin[10897:607] SEND: <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="DIGEST-MD5"/>
+2015-08-06 18:18:02:123 chengxin[10897:7137] RECV: <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixxb3A9ImF1dGgiLGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNz</challenge>
+2015-08-06 18:18:02:123 chengxin[10897:7137] RECV: <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixxb3A9ImF1dGgiLGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNz</challenge>
+2015-08-06 18:18:02:123 chengxin[10897:7137] RECV: <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixxb3A9ImF1dGgiLGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNz</challenge>
+2015-08-06 18:18:02:123 chengxin[10897:7137] RECV: <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixxb3A9ImF1dGgiLGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNz</challenge>
+2015-08-06 18:18:02:123 chengxin[10897:7137] RECV: <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixxb3A9ImF1dGgiLGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNz</challenge>
+2015-08-06 18:18:02:123 chengxin[10897:7137] RECV: <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixxb3A9ImF1dGgiLGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNz</challenge>
+2015-08-06 18:18:02:123 chengxin[10897:7137] RECV: <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixxb3A9ImF1dGgiLGNoYXJzZXQ9dXRmLTgsYWxnb3JpdGhtPW1kNS1zZXNz</challenge>
+2015-08-06 18:18:21:895 chengxin[10897:7137] SEND: <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dXNlcm5hbWU9IjIwMDQyNCIscmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixjbm9uY2U9IjRFRUU2MzBBLTQ3NTctNDUzRC04NTBELTQzQUM1NDdGNTg0RSIsbmM9MDAwMDAwMDEscW9wPWF1dGgsZGlnZXN0LXVyaT0ieG1wcC8xMjEuNDAuMjE0LjM1IixyZXNwb25zZT1jNDk4OWFhOGJlMDM0YWNkNDhiNWU1NDZmZTgxMmI3ZCxjaGFyc2V0PXV0Zi04</response>
+2015-08-06 18:18:21:895 chengxin[10897:7137] SEND: <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dXNlcm5hbWU9IjIwMDQyNCIscmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixjbm9uY2U9IjRFRUU2MzBBLTQ3NTctNDUzRC04NTBELTQzQUM1NDdGNTg0RSIsbmM9MDAwMDAwMDEscW9wPWF1dGgsZGlnZXN0LXVyaT0ieG1wcC8xMjEuNDAuMjE0LjM1IixyZXNwb25zZT1jNDk4OWFhOGJlMDM0YWNkNDhiNWU1NDZmZTgxMmI3ZCxjaGFyc2V0PXV0Zi04</response>
+2015-08-06 18:18:21:895 chengxin[10897:7137] SEND: <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dXNlcm5hbWU9IjIwMDQyNCIscmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixjbm9uY2U9IjRFRUU2MzBBLTQ3NTctNDUzRC04NTBELTQzQUM1NDdGNTg0RSIsbmM9MDAwMDAwMDEscW9wPWF1dGgsZGlnZXN0LXVyaT0ieG1wcC8xMjEuNDAuMjE0LjM1IixyZXNwb25zZT1jNDk4OWFhOGJlMDM0YWNkNDhiNWU1NDZmZTgxMmI3ZCxjaGFyc2V0PXV0Zi04</response>
+2015-08-06 18:18:21:895 chengxin[10897:7137] SEND: <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dXNlcm5hbWU9IjIwMDQyNCIscmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixjbm9uY2U9IjRFRUU2MzBBLTQ3NTctNDUzRC04NTBELTQzQUM1NDdGNTg0RSIsbmM9MDAwMDAwMDEscW9wPWF1dGgsZGlnZXN0LXVyaT0ieG1wcC8xMjEuNDAuMjE0LjM1IixyZXNwb25zZT1jNDk4OWFhOGJlMDM0YWNkNDhiNWU1NDZmZTgxMmI3ZCxjaGFyc2V0PXV0Zi04</response>
+2015-08-06 18:18:21:895 chengxin[10897:7137] SEND: <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dXNlcm5hbWU9IjIwMDQyNCIscmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixjbm9uY2U9IjRFRUU2MzBBLTQ3NTctNDUzRC04NTBELTQzQUM1NDdGNTg0RSIsbmM9MDAwMDAwMDEscW9wPWF1dGgsZGlnZXN0LXVyaT0ieG1wcC8xMjEuNDAuMjE0LjM1IixyZXNwb25zZT1jNDk4OWFhOGJlMDM0YWNkNDhiNWU1NDZmZTgxMmI3ZCxjaGFyc2V0PXV0Zi04</response>
+2015-08-06 18:18:21:895 chengxin[10897:7137] SEND: <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dXNlcm5hbWU9IjIwMDQyNCIscmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixjbm9uY2U9IjRFRUU2MzBBLTQ3NTctNDUzRC04NTBELTQzQUM1NDdGNTg0RSIsbmM9MDAwMDAwMDEscW9wPWF1dGgsZGlnZXN0LXVyaT0ieG1wcC8xMjEuNDAuMjE0LjM1IixyZXNwb25zZT1jNDk4OWFhOGJlMDM0YWNkNDhiNWU1NDZmZTgxMmI3ZCxjaGFyc2V0PXV0Zi04</response>
+2015-08-06 18:18:21:895 chengxin[10897:7137] SEND: <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dXNlcm5hbWU9IjIwMDQyNCIscmVhbG09InNob3AiLG5vbmNlPSJBcmxTcEt1OXNGWlN1aUVxWXdpNEV5U2VqdWt0OXdBT1FGajRlUG1NIixjbm9uY2U9IjRFRUU2MzBBLTQ3NTctNDUzRC04NTBELTQzQUM1NDdGNTg0RSIsbmM9MDAwMDAwMDEscW9wPWF1dGgsZGlnZXN0LXVyaT0ieG1wcC8xMjEuNDAuMjE0LjM1IixyZXNwb25zZT1jNDk4OWFhOGJlMDM0YWNkNDhiNWU1NDZmZTgxMmI3ZCxjaGFyc2V0PXV0Zi04</response>
+2015-08-06 18:18:21:966 chengxin[10897:7137] RECV: <failure xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><not-authorized/></failure>
+2015-08-06 18:18:21:966 chengxin[10897:7137] RECV: <failure xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><not-authorized/></failure>
+2015-08-06 18:18:21:966 chengxin[10897:7137] RECV: <failure xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><not-authorized/></failure>
+2015-08-06 18:18:21:966 chengxin[10897:7137] RECV: <failure xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><not-authorized/></failure>
+2015-08-06 18:18:21:966 chengxin[10897:7137] RECV: <failure xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><not-authorized/></failure>
+2015-08-06 18:18:21:966 chengxin[10897:7137] RECV: <failure xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><not-authorized/></failure>
+2015-08-06 18:18:21:966 chengxin[10897:7137] RECV: <failure xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><not-authorized/></failure>
+2015-08-06 18:18:25:702 chengxin[10897:7137] SEND: <presence type="unavailable"/>
+2015-08-06 18:18:25:702 chengxin[10897:7137] SEND: <presence type="unavailable"/>
+2015-08-06 18:18:25:702 chengxin[10897:7137] SEND: <presence type="unavailable"/>
+2015-08-06 18:18:25:702 chengxin[10897:7137] SEND: <presence type="unavailable"/>
+2015-08-06 18:18:25:702 chengxin[10897:7137] SEND: <presence type="unavailable"/>
+2015-08-06 18:18:25:702 chengxin[10897:7137] SEND: <presence type="unavailable"/>
+2015-08-06 18:18:25:702 chengxin[10897:7137] SEND: <presence type="unavailable"/>
+2015-08-06 18:18:25.704 chengxin[10897:125889] < XMPPManager.m:(201) > Chat Server authentication failure!
+2015-08-06 18:18:25.705 chengxin[10897:125889] < XMPPManager.m:(281) > -[XMPPManager xmppStreamDidDisconnect:withError:]
+2015-08-06 18:18:28.233 chengxin[10897:125889] < AppDelegate.m:(194) > Forced to leave the server
+2015-08-06 18:18:28.234 chengxin[10897:125889] < StRequest.m:(212) > URL : http://121.40.214.35:8000/index.php/user/api/removeNoticeHostForIphone
+2015-08-06 18:18:28.234 chengxin[10897:125889] < StRequest.m:(105) > POST BODY (原始数据):
+uid=200424
+2015-08-06 18:18:28.235 chengxin[10897:125889] < AppDelegate.m:(196) > Chat System offline
+2015-08-06 18:18:28.235 chengxin[10897:125889] < AppDelegate.m:(198) > Exit system
+2015-08-06 18:18:28.282 chengxin[10897:125889] < StRequest.m:(212) > URL : http://121.40.214.35:8000/index.php/shop/api/categroyList
+2015-08-06 18:18:28.282 chengxin[10897:125889] < StRequest.m:(105) > POST BODY (原始数据):
+2015-08-06 18:18:28.434 chengxin[10897:125889] < StRequest.m:(283) > connectionDidFinishLoading
+{"data":{},"state":{"code":0,"msg":"\u64cd\u4f5c\u6210\u529f","debugMsg":"","url":"User\/Api\/removeNoticeHostForIphone"}}
+2015-08-06 18:18:28.492 chengxin[10897:125889] < StRequest.m:(283) > connectionDidFinishLoading
+{"data":[{"id":"1","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/4.png","name":"\u5973\u88c5","vieworder":"0"},{"id":"2","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/3.png","name":"\u7537\u88c5","vieworder":"0"},{"id":"3","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/7.png","name":"\u978b\u5305","vieworder":"0"},{"id":"4","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/2.png","name":"\u6bcd\u5a74","vieworder":"0"},{"id":"5","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/1.png","name":"\u5316\u5986","vieworder":"0"},{"id":"6","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/6.png","name":"\u6570\u7801","vieworder":"0"},{"id":"7","logo":"http:\/\/112.124.30.63\/weiyuan\/Uploads\/Picture\/UI\/8.png","name":"\u4f11\u95f2","vieworder":"0"},{"id":"11","logo":"http:\/\/119.84.73.193\/Uploads\/Picture\/shop\/20150716\/s_dae1d0540f8f548256b5f4bbb9ee4239.png","name":"\u827a\u672f","vieworder":"0"}],"state":{"code":0,"msg":"","debugMsg":"","url":"Shop\/Api\/categroyList"}}
