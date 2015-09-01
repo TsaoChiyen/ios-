@@ -27,7 +27,7 @@
 @implementation SearchChatViewController
 
 - (void)viewDidLoad {
-    enablefilter = YES;
+    self.enablefilter = YES;
     [super viewDidLoad];
     [self setEdgesNone];
     // 搜索聊天记录

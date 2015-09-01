@@ -37,27 +37,15 @@
     if ((self = [super init])) {
         arrMenu = @[@"扫码",
                      @"需求",
-                     @"游乐场",
                      @"订单",
-                     @" 公众号 ",
-                     @"住宿",
-                     @"景点",
-                     @"维修"];
+                    @" 公众号 "];
 
         arrClass = @[@"QRcodeReaderViewController",
                     @"DemandViewController",
-                    @"",
                     @"OrderViewController",
-                    @"",
-                    @"",
-                    @"",
-                    @""];
+                     @"CloudListViewController"];
 
         arrImage = @[@"",
-                     @"",
-                     @"",
-                     @"",
-                     @"",
                      @"",
                      @"",
                      @""];
@@ -69,14 +57,13 @@
 const float BANNER_HEIGHT = 129;
 
 - (void)viewDidLoad {
-    enablefilter = YES;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setEdgesNone];
 
     [self initCollectionMenu];
     
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+//    [self.view setBackgroundColor:[UIColor lightGrayColor]];
 
     activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
     [activityIndicator setCenter:self.view.center];

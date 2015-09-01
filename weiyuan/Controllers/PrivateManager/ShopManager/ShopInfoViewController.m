@@ -198,7 +198,7 @@
     }
     
     UIView *view = [[UIView alloc] initWithFrame:rc];
-    view.backgroundColor = UIColorFromRGB(0xe0e0e0);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
 
     UILabel *lblTitle = [UILabel singleLineText:title
                                            font:[UIFont systemFontOfSize:17]

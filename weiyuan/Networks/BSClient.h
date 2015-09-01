@@ -36,10 +36,24 @@
 -(void)requestFor:(NSDictionary *)params methodName:(NSString *)methodName;
 
 /**
+ *  Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *  用户注册协议
+ *  @interface  /user/apiother/regist
+ *  @param      none
+ */
+- (NSURLRequest *)getProtocol;
+
+/**
+ *  Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *  帮助中心
+ *  @interface  /user/apiother/help
+ *  @param      none
+ */
+- (NSURLRequest *)getHelp;
+
+/**
  *	Copyright © 2014 Xizue Inc. All rights reserved.
- *
- *	公众号菜单
- *
+ *	@interface  公众号菜单
  */
 - (void)getCloudMenu:(NSString *)subId;
 
@@ -1001,6 +1015,21 @@
  *	Copyright © 2014 sam Inc. All rights reserved.
  *	Copyright © 2015 tcy@dreamisland. All rights reserved.
  *
+ *	修改商品库
+ *
+ *  @param price         商品价格   (必填)
+ *  @param number        商品数量
+ *      data:     数据格式:1,200,50 <=>商品 ID,价格,库存
+ *                  这里的 data 应该是ShlefGoods数组
+ */
+- (void)editShopGoodsWithId:(NSString *)goodsId
+                      price:(NSString *)price
+                     number:(NSString *)number;
+
+/**
+ *	Copyright © 2014 sam Inc. All rights reserved.
+ *	Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *
  *	删除产品库
  *
  *  @param goodsIds   产品 ID,多个用“,”逗号隔开
@@ -1021,18 +1050,6 @@
  */
 - (void)shelfGoodsWithStatus:(NSInteger)status
                         data:(NSArray *)data;
-
-/**
- *	Copyright © 2014 sam Inc. All rights reserved.
- *	Copyright © 2015 tcy@dreamisland. All rights reserved.
- *
- *	商品列表编辑
- *
- *  @param data:     数据格式:1,200,50 <=>商品 ID,价格,库存
- *                  这里的 data 应该是ShlefGoods数组
- *
- */
-- (void)shelfGoodsWithData:(NSArray *)data;
 
 #pragma mark - Shop Demand
 

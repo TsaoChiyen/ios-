@@ -29,20 +29,25 @@
     if (type == 0) {
         self.navigationItem.title = @"帮助中心";
     } else {
-        
         self.navigationItem.title = @"注册协议";
     }
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    NSURL *srl = nil;
-    if (type == 0) {
-        srl = [NSURL URLWithString:[NSString stringWithFormat:@"%@user/apiother/help", KBSSDKAPIDomain]];
-    } else {
-        srl = [NSURL URLWithString:[NSString stringWithFormat:@"%@user/apiother/regist", KBSSDKAPIDomain]];
-    }
-    NSURLRequest *request = [NSURLRequest requestWithURL:srl];
-    [webView loadRequest:request];
     [self.view addSubview:webView];
+
+    NSURLRequest *request = nil;
+
+    client = [[BSClient alloc] init];
+    
+    if (type == 0) {
+        request = [client getHelp];
+    } else {
+        request = [client getProtocol];
+    }
+
+    if (request) {
+        [webView loadRequest:request];
+    }
 }
 
 @end

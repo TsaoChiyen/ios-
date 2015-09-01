@@ -16,7 +16,6 @@
 #import "GoodsShelfCell.h"
 #import "GoodDetailViewController.h"
 #import "GoodsShelfEditController.h"
-#import "GoodsShelfEditViewController.h"
 
 @interface GoodsShelfViewController () <GoodsShelfCellDelegate, GoodsShelfEditDelegate>
 {
@@ -44,8 +43,8 @@
     // Do any additional setup after loading the view.
     [self setEdgesNone];
 
-    arrStatus = @[@"所有状态",@"未上线",@"已上线"];
-    currentStatus = -1;
+    arrStatus = @[@"所有状态",@"未上架",@"已上架"];
+    currentStatus = 0;
     
     self.navigationItem.title = @"商品上架管理";
     headerView = self.headerBar;
@@ -87,7 +86,7 @@
 
 - (UIView *)headerBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
-    view.backgroundColor = UIColorFromRGB(0xff0000);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     CGPoint pos = CGPointMake(6, 4);
     
     btnCategory = [self buttonInActionbar:view title:@"商品分类" position:pos];
@@ -104,19 +103,19 @@
     CGFloat statusHeight = getDeviceStatusHeight();
 
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.height - statusHeight - 40, self.view.width, 40)];
-    view.backgroundColor = UIColorFromRGB(0xff00);
-    CGPoint pos = CGPointMake(10, 4);
+    view.backgroundColor = UIColorFromRGB(0xffffff);
+    float width = view.width / 2;
+    CGPoint pos = CGPointMake((width - 100) *0.5, 4);
     
     [self buttonInActionbar:view title:@"确认上架" position:pos].tag = 2;
     
-    pos.x += 100;
-    
+    pos.x += width;
     [self buttonInActionbar:view title:@"确认下架" position:pos].tag = 3;
-
-    pos.x += 100;
-    
-    [self buttonInActionbar:view title:@"确认修改" position:pos].tag = 4;
-    
+//
+//    pos.x += width;
+//    
+//    [self buttonInActionbar:view title:@"确认修改" position:pos].tag = 4;
+//    
     return view;
 }
 
@@ -144,14 +143,14 @@
             menuView.tag = sender.tag;
             break;
         case 2:
-            [self sendRequestWithStatus:1];
-            break;
-        case 3:
             [self sendRequestWithStatus:2];
             break;
-        case 4:
-            [self editSelectedGoods];
+        case 3:
+            [self sendRequestWithStatus:1];
             break;
+//        case 4:
+//            [self editSelectedGoods];
+//            break;
         default:
             break;
     }
@@ -209,13 +208,12 @@
 
 - (void)popoverView:(MenuView *)sender didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (sender.tag == 0) {
-        [btnCategory setTitle:[ShopCategroy getCategoryNameByIdx:buttonIndex]
-                     forState:UIControlStateNormal];
         ShopCategroy *item = [ShopCategroy getCategoryByIdx:buttonIndex];
+        [btnCategory setTitle:item.name forState:UIControlStateNormal];
         currentCategoryId = item.id.integerValue;
     } else if (sender.tag == 1) {
         [btnStatus setTitle:arrStatus[buttonIndex] forState:UIControlStateNormal];
-        currentStatus = buttonIndex - 1;
+        currentStatus = buttonIndex;
     }
     
     [self requestData];
@@ -261,30 +259,30 @@
     }
 }
 
-- (void)editSelectedGoods
-{
-    NSMutableArray *arrGoods = [NSMutableArray array];
-    
-    if (contentArr && contentArr.count > 0) {
-        [contentArr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            Good *goods = obj;
-            
-            if ([goods.selected isEqual:@"1"]) {
-                [arrGoods addObject:goods];
-            }
-        }];
-    }
-    
-    if (arrGoods.count > 0) {
-        GoodsShelfEditViewController *con = [[GoodsShelfEditViewController alloc] init];
-        
-        if (con) {
-            con.arrGoods = arrGoods;
-            [self pushViewController:con];
-        }
-    }
-}
-
+//- (void)editSelectedGoods
+//{
+//    NSMutableArray *arrGoods = [NSMutableArray array];
+//    
+//    if (contentArr && contentArr.count > 0) {
+//        [contentArr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//            Good *goods = obj;
+//            
+//            if ([goods.selected isEqual:@"1"]) {
+//                [arrGoods addObject:goods];
+//            }
+//        }];
+//    }
+//    
+//    if (arrGoods.count > 0) {
+//        GoodsShelfEditViewController *con = [[GoodsShelfEditViewController alloc] init];
+//        
+//        if (con) {
+//            con.arrGoods = arrGoods;
+//            [self pushViewController:con];
+//        }
+//    }
+//}
+//
 - (void)sendRequestWithStatus:(NSInteger)status
 {
     NSMutableArray *arrGoods = [NSMutableArray array];

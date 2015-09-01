@@ -7,12 +7,23 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddRepaymentBillViewController">
             <connections>
-                <outlet property="txtBankOrMechanism" destination="SuR-Ym-IMw" id="MB8-Ot-14i"/>
-                <outlet property="txtDate" destination="tIy-mN-Qs1" id="64f-WR-Wu7"/>
-                <outlet property="txtNameOrCard" destination="Aya-lN-xVm" id="YJk-cz-itX"/>
-                <outlet property="txtNumber" destination="fOb-ec-B8z" id="6jG-by-GSt"/>
-                <outlet property="txtPrice" destination="dN1-R2-4cj" id="uLg-Kd-cj1"/>
+                <outlet property="btnEmailAgree" destination="XfQ-JE-Zsf" id="KG6-d1-I07"/>
+                <outlet property="btnEmailProtocol" destination="pbO-8o-INq" id="Mso-g2-ZCR"/>
+                <outlet property="txtBank" destination="gyl-pT-qXE" id="edW-tp-igE"/>
+                <outlet property="txtCard" destination="KQM-ll-XeF" id="1zq-R3-bNF"/>
+                <outlet property="txtDateOfMonth" destination="OqC-3g-AUh" id="E71-kS-7AW"/>
+                <outlet property="txtEmail" destination="I8W-v0-kwJ" id="ybM-40-8sT"/>
+                <outlet property="txtEmailLogin" destination="xhz-7m-8Tz" id="Ibf-i9-Rka"/>
+                <outlet property="txtEmailPass" destination="5Pv-1H-fCa" id="C2R-UN-I4W"/>
+                <outlet property="txtEmailServer" destination="g7D-3K-0aS" id="qIn-M3-wjM"/>
+                <outlet property="txtLastDate" destination="pAy-Wf-KjS" id="FIM-88-wWt"/>
+                <outlet property="txtMechanism" destination="eBb-bg-He7" id="F4F-t5-hT7"/>
+                <outlet property="txtName" destination="cSV-v9-Vd8" id="SAB-Nj-r2c"/>
+                <outlet property="txtNumber" destination="3mp-a8-J82" id="Hbi-FQ-fFK"/>
+                <outlet property="txtPrice" destination="OJv-WG-ns3" id="d6t-hh-aRR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view1" destination="F8U-gX-KcT" id="Exe-0G-MeC"/>
+                <outlet property="view2" destination="gCT-U6-jBT" id="aWb-UO-3Yv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,50 +31,161 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aya-lN-xVm" customClass="KTextField">
-                    <rect key="frame" x="8" y="8" width="304" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="h9w-sr-Ond"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SuR-Ym-IMw" customClass="KTextField">
-                    <rect key="frame" x="8" y="46" width="304" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="yy7-1w-yry"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tIy-mN-Qs1" customClass="KTextField">
-                    <rect key="frame" x="8" y="84" width="304" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="O2T-QL-Okc"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dN1-R2-4cj" customClass="KTextField">
-                    <rect key="frame" x="8" y="122" width="304" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="hwQ-Nm-BSY"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fOb-ec-B8z" customClass="KTextField">
-                    <rect key="frame" x="8" y="160" width="304" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="vGC-Nj-FPX"/>
-                    </connections>
-                </textField>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8U-gX-KcT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="还款名称" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-v9-Vd8" customClass="KTextField">
+                            <rect key="frame" x="15" y="8" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="eSL-2d-Or8"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="还款机构" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBb-bg-He7" customClass="KTextField">
+                            <rect key="frame" x="15" y="48" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="kYJ-3U-1Bh"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="每期还款日期" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OqC-3g-AUh" customClass="KTextField">
+                            <rect key="frame" x="15" y="88" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="ryI-sT-4wk"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="还款金额" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJv-WG-ns3" customClass="KTextField">
+                            <rect key="frame" x="15" y="128" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="LQs-3i-bKw"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="剩余期数" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mp-a8-J82" customClass="KTextField">
+                            <rect key="frame" x="15" y="168" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="y3R-cD-U95"/>
+                            </connections>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCT-U6-jBT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="340"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="信用卡4位尾号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQM-ll-XeF" customClass="KTextField">
+                            <rect key="frame" x="15" y="8" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="6W9-fB-SzU"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择银行" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyl-pT-qXE" customClass="KTextField">
+                            <rect key="frame" x="15" y="48" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="AcW-NK-Cqt"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="最晚还款日期" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pAy-Wf-KjS" customClass="KTextField">
+                            <rect key="frame" x="15" y="88" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="44y-lO-OVz"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="信用卡账单邮箱（选填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I8W-v0-kwJ" customClass="KTextField">
+                            <rect key="frame" x="15" y="128" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="P8p-4X-G12"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱密码（选填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-1H-fCa" customClass="KTextField">
+                            <rect key="frame" x="15" y="168" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="C3P-4l-J2s"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱登录方式 （选填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xhz-7m-8Tz" customClass="KTextField">
+                            <rect key="frame" x="15" y="208" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="d5X-VI-zbU"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱服务商（选填）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7D-3K-0aS" customClass="KTextField">
+                            <rect key="frame" x="15" y="248" width="290" height="32"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="sy8-zd-n1O"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfQ-JE-Zsf">
+                            <rect key="frame" x="15" y="288" width="76" height="32"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="14" maxY="0.0"/>
+                            <state key="normal" title="   同意" image="checkbox_n.png">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="checkbox_s.png"/>
+                            <connections>
+                                <action selector="emailAgree:" destination="-1" eventType="touchUpInside" id="FD3-Cx-meE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbO-8o-INq">
+                            <rect key="frame" x="77" y="288" width="120" height="32"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="邮件抓取授权协议">
+                                <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.0" green="0.47450980390000003" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="emailAgree:" destination="-1" eventType="touchUpInside" id="oJL-7j-dNI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="checkbox_n.png" width="16" height="16"/>
+        <image name="checkbox_s.png" width="16" height="16"/>
+    </resources>
 </document>

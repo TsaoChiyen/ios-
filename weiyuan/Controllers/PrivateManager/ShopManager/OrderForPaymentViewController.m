@@ -82,7 +82,7 @@
 
 - (UIView *)headerBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 58)];
-    view.backgroundColor = UIColorFromRGB(0xe0e0e0);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     
     NSArray * arrSegmented = @[@"可结款",@"历史结款"];
     
@@ -109,7 +109,7 @@
     CGFloat statusHeight = getDeviceStatusHeight();
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.height - statusHeight - 40, self.view.width, 40)];
-    view.backgroundColor = UIColorFromRGB(0xff00);
+    view.backgroundColor = UIColorFromRGB(0xffffff);
     CGPoint pos = CGPointMake(42, 4);
     
     [self buttonInActionbar:view title:@"确定结款" position:pos].tag = 2;

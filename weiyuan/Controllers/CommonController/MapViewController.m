@@ -44,7 +44,7 @@
         // Custom initialization
         self.delegate = del;
         self.readOnly = NO;
-        enablefilter = YES;
+        self.enablefilter = YES;
     }
     return self;
 }

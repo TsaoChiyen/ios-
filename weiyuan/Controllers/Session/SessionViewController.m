@@ -52,7 +52,7 @@
 
 - (UIView *)headerBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
-    view.backgroundColor = UIColorFromRGB(0xe00e0e);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     NSArray * arrSegmented = @[@"通讯录",@"朋友圈",@"秘室",@"群聊"];
     
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:arrSegmented];

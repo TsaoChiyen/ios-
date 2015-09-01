@@ -39,7 +39,7 @@
 
 - (void)viewDidLoad
 {
-    enablefilter = YES;
+    self.enablefilter = YES;
     [self setEdgesNone];
     [super viewDidLoad];
     // Do any additional setup after loading the view.

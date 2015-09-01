@@ -73,7 +73,7 @@
 
 - (UIView *)headerBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
-    view.backgroundColor = UIColorFromRGB(0xff0000);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     CGPoint pos = CGPointMake(6, 4);
     
     btnStatus = [self buttonInActionbar:view title:@"所有状态" position:pos];
@@ -86,7 +86,7 @@
     CGFloat statusHeight = getDeviceStatusHeight();
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.height - statusHeight - 40, self.view.width, 40)];
-    view.backgroundColor = UIColorFromRGB(0xff00);
+    view.backgroundColor = UIColorFromRGB(0xffffff);
 
     CGPoint pos = CGPointMake(10, 0);
     lblCount = [self labelInActionbar:view title:@"总计\n75个订单" position:pos];

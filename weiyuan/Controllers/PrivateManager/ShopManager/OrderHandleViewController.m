@@ -119,21 +119,21 @@
 
 - (UIView *)headerView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 32)];
-    view.backgroundColor = UIColorFromRGB(0xff0000);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     lblOrder = [self labelInActionView:view title:[NSString stringWithFormat:@"订单:%@", _order.ordersn]];
     return view;
 }
 
 - (UIView *)customerHeaderView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 32)];
-    view.backgroundColor = UIColorFromRGB(0xff0000);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     lblOrder = [self labelInActionView:view title:@"顾客信息"];
     return view;
 }
 
 - (UIView *)footerView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 36)];
-    view.backgroundColor = UIColorFromRGB(0xff00);
+    view.backgroundColor = UIColorFromRGB(0xffffff);
 
     CGPoint pos = CGPointMake(24, 0);
 
@@ -260,7 +260,7 @@
 {
     if (section == 0) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, sender.width, 32)];
-        view.backgroundColor = UIColorFromRGB(0xff00ff);
+        view.backgroundColor = UIColorFromRGB(0xffffff);
         lblOrder = [self labelInActionView:view
                                      title:[NSString stringWithFormat:@"共计: %d件商品\t总计金额: %0.2f", totalGoods, totals]];
         return view;

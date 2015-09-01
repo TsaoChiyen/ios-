@@ -86,11 +86,23 @@
     _goods.number = textNumber.text;
     _goods.price = textPrice.text;
     
-    if ([self.delegate respondsToSelector:@selector(view:didEditFinishWithGoods:)]) {
-        [self.delegate performSelector:@selector(view:didEditFinishWithGoods:) withObject:self withObject:_goods];
+    if (!client) {
+        client = [[BSClient alloc] initWithDelegate:self action:@selector(requestDidFinish:obj:)];
+        
+        [client editShopGoodsWithId:_goods.id price:_goods.price number:_goods.number];
+    }
+}
+
+- (BOOL)requestDidFinish:(id)sender obj:(NSDictionary *)obj {
+    if ([super requestDidFinish:sender obj:obj]) {
+        if ([self.delegate respondsToSelector:@selector(view:didEditFinishWithGoods:)]) {
+            [self.delegate performSelector:@selector(view:didEditFinishWithGoods:) withObject:self withObject:_goods];
+        }
+        
+        [self popViewController];
     }
     
-    [self popViewController];
+    return YES;
 }
 
 @end

@@ -140,7 +140,7 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
 - (UIView *)footerView {
     CGRect rc = CGRectMake(0, 0, tableView.width, 48);
     UIView *view = [[UIView alloc] initWithFrame:rc];
-    view.backgroundColor = UIColorFromRGB(0xff00);
+    view.backgroundColor = UIColorFromRGB(0xffffff);
     
     CGPoint pos = CGPointMake(32, 2);
 
@@ -205,7 +205,7 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
 
 - (UIView *)headerViewWithTitle:(NSString *)title {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.width, 32)];
-    view.backgroundColor = UIColorFromRGB(0xff0000);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     lblOrder = [self labelInActionView:view title:title];
     return view;
 }
@@ -292,7 +292,7 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
 {
     if (section == 0) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, sender.width, 32)];
-        view.backgroundColor = UIColorFromRGB(0xff00ff);
+        view.backgroundColor = UIColorFromRGB(0xffffff);
         lblOrder = [self labelInActionView:view
                                      title:[NSString stringWithFormat:@"共计: %d件商品\t总计金额: %0.2f", totalGoods, totals]];
         return view;

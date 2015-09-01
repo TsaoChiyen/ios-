@@ -38,6 +38,7 @@
 @synthesize tableViewCellHeight, tag;
 @dynamic dataArray, currectTableView;
 @synthesize mySearchDisplayController, searchBar;
+@synthesize enablefilter;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -647,6 +648,7 @@
 }
 
 #pragma mark - UISearchBarDelegate
+
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)sender {
 //    [UIView animateWithDuration:0.35 animations:^{
 //        sender.width -= 40;

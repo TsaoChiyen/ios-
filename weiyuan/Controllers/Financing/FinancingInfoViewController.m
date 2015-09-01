@@ -20,6 +20,7 @@
 #import "UIImage+FlatUI.h"
 #import "UIColor+FlatUI.h"
 #import "CameraActionSheet.h"
+#import "HelpViewController.h"
 
 @interface FinancingInfoViewController () <MapViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,  CameraActionSheetDelegate, ImageTouchViewDelegate, UITextFieldDelegate>
 {
@@ -36,12 +37,16 @@
     IBOutlet ImageTouchView *authBussiness;
     
     IBOutlet UIView *chargeView;
+    IBOutlet UIView *applyView;
     
     IBOutlet KTextField *restCoins;
     IBOutlet UILabel *exchangePrompt;
     
+    IBOutlet UIButton *editBtn;
     IBOutlet UIButton *applyBtn;
     IBOutlet UIButton *chargeBtn;
+    IBOutlet UIButton *agreeBtn;
+    IBOutlet UIButton *protocolBtn;
 
     NSInteger  serviceCityCode;
 }
@@ -63,6 +68,7 @@
     [restCoins enableBorder];
     
     [applyBtn commonStyle];
+    [editBtn commonStyle];
     [chargeBtn borderStyle];
     
     authService.image = LOADIMAGECACHES(@"btn_room_add");
@@ -80,14 +86,18 @@
     if (_financ) {
         self.navigationItem.title = @"融资贷款服务信息管理";
         chargeView.hidden = NO;
-        [applyBtn setTitle:@"确定修改" forState:UIControlStateNormal];
+        applyView.hidden = YES;
+        [scrollView setContentSize:CGSizeMake(0, chargeView.bottom)];
     } else {
         chargeView.hidden = YES;
+        applyView.hidden = NO;
         self.navigationItem.title = @"融资贷款服务入驻申请";
-        [applyBtn setTitle:@"提交申请" forState:UIControlStateNormal];
+        [scrollView setContentSize:CGSizeMake(0, applyView.bottom)];
     }
     
-    [scrollView setContentSize:CGSizeMake(0, applyBtn.bottom + 10)];
+    CGRect frame = self.view.frame;
+    
+    scrollView.size = frame.size;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,11 +166,23 @@
     }
 }
 
-- (IBAction)doCharge:(id)sender {
+- (IBAction)doAgree:(UIButton *)sender {
+    if (sender.tag == 0) {
+        sender.selected = !sender.selected;
+    } else {
+        HelpViewController* controller = [[HelpViewController alloc] init];
+        controller.type = 1;
+        [self pushViewController:controller];
+    }
+}
+
+- (IBAction)doCharge:(UIButton *)sender {
     [self showAlert:@"测试期间，暂不提供充值服务" isNeedCancel:NO];
 }
 
-- (IBAction)applyDidFinish:(id)sender {
+- (IBAction)applyDidFinish:(UIButton *)sender {
+    [self resignAllKeyboard:self.view];
+
     if (!company.text.hasValue) {
         [self showText:@"请输入公司名称"];
     } else if (!address.text.hasValue) {
@@ -173,6 +195,8 @@
         [self showText:@"请选择上传身份证照片"];
     } else if (!images[3]) {
         [self showText:@"请选择上传从业资质证明照片"];
+    } else if (!agreeBtn.selected) {
+        [self showText:@"请阅读并同意注册协议！"];
     } else {
         [super startRequest];
         

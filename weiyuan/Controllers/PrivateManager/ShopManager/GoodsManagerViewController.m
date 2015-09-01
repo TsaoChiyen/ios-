@@ -65,7 +65,7 @@
 
 - (UIView *)headerBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
-    view.backgroundColor = UIColorFromRGB(0xff0000);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     CGPoint pos = CGPointMake(6, 4);
     
     btnCategory = [self buttonInActionbar:view title:@"商品分类" position:pos];
@@ -137,7 +137,7 @@
 
     self.loading = YES;
 
-    [client getProductListWithCategoryid:currentCategoryId andStatus:-1];
+    [client getProductListWithCategoryid:currentCategoryId andStatus:0];
 }
 
 - (BOOL)requestDidFinish:(id)sender obj:(NSDictionary *)obj
@@ -164,10 +164,9 @@
 
 - (void)popoverView:(MenuView *)sender didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (sender.tag == 0) {
-        currentCategoryId = buttonIndex;
-        
-        [btnCategory setTitle:[ShopCategroy getCategoryNameByIdx:buttonIndex]
-                     forState:UIControlStateNormal];
+        ShopCategroy *item = [ShopCategroy getCategoryByIdx:buttonIndex];
+        currentCategoryId = item.id.integerValue;
+        [btnCategory setTitle:item.name forState:UIControlStateNormal];
         [contentArr removeAllObjects];
         [self requstData];
     }

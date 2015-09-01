@@ -147,6 +147,7 @@
 
 - (IBAction)btnRegister:(id)sender {
     [self resignAllKeyboard:self.view];
+
     if (!nameLabel.text || nameLabel.text.length == 0) {
         [self showText:@"请输入手机号"];
         [nameLabel shakeAlert];

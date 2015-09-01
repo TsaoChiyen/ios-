@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setEdgesNone];
+    
+    [self labelInActionbar:self.view title:@"正在筹备中,敬请期待!" frame:CGRectMake(0, 100, self.view.width, 80)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,8 +31,16 @@
     [super viewDidAppear:animated];
 }
 
+- (UILabel *)labelInActionbar:(UIView*)actionbar title:(NSString *)text frame:(CGRect)frame {
+    UILabel *lbl = [UILabel multLinesText:text font:[UIFont systemFontOfSize:22] wid:100];
+    [lbl setTextColor:[UIColor lightGrayColor]];
+    lbl.frame = frame;
+    lbl.textAlignment = NSTextAlignmentCenter;
+    [actionbar addSubview:lbl];
+    return lbl;
+}
+
 - (BOOL)startRequest {
-    [self showAlert:@"展会正在筹建中，敬请等待！" isNeedCancel:NO];
     return NO;
 }
 

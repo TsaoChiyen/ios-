@@ -23,7 +23,7 @@
 @implementation FinanceCheckViewController
 
 - (void)viewDidLoad {
-    enablefilter = YES;
+    self.enablefilter = YES;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setEdgesNone];
@@ -107,7 +107,7 @@
 - (void)imageTouchViewDidSelected:(ImageTouchView*)sender {
     if ([sender.tag isEqualToString:@"addTouchView"]) {
         if (self.searchView.width == 0) {
-            MenuView *menuView = [[MenuView alloc] initWithButtonTitles:@[@"贷款还款", @"信用卡还款"] withDelegate:self];
+            MenuView *menuView = [[MenuView alloc] initWithButtonTitles:@[@"贷款还款提醒", @"信用卡还款提醒"] withDelegate:self];
 
             if (menuView) {
                 [menuView showInView:self.view origin:CGPointMake(tableView.width - MENUVIEW_WIDTH, 0)];
@@ -191,8 +191,8 @@
         frame = CGRectMake(left + width * 0.6, top, width * 0.4, height);
         cell.labOther.frame = frame;
         cell.labOther.textAlignment = NSTextAlignmentRight;
-        cell.labOther.font = [UIFont systemFontOfSize:19];
-        cell.labOther.textColor = [UIColor redColor];
+        cell.labOther.font = [UIFont systemFontOfSize:17];
+        cell.labOther.textColor = [UIColor orangeColor];
         
         cell.imageView.hidden = YES;
     }];
@@ -203,9 +203,13 @@
         cell.textLabel.text = bill.bank;
     }
     
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ 到期", [Globals convertDateFromString:bill.repayment timeType:4]];
-
-    cell.labOther.text =  [NSString stringWithFormat:@"￥%0.2f", bill.price.floatValue];
+    if (bill.type.integerValue == 1) {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"每月%@日提醒", bill.repayment];
+        cell.labOther.text =  [NSString stringWithFormat:@"￥%0.2f", bill.price.floatValue];
+    } else {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ 到期", [Globals convertDateFromString:bill.repayment timeType:4]];
+        cell.labOther.text =  @"";
+    }
 
     return cell;
 }

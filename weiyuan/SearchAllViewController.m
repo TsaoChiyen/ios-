@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     sessionArr = [NSMutableArray array];
-    enablefilter = YES;
+    self.enablefilter = YES;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setEdgesNone];

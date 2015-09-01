@@ -231,6 +231,8 @@
     }];
     
     self.scrollheaderView.nameArray = arr;
+    
+    self.scrollheaderView.backgroundColor = [UIColor whiteColor];
 }
 
 - (void) setMenuIconsArray:(NSArray *)arr AddSelected:(NSArray *)selectArr{

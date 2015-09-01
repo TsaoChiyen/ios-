@@ -40,9 +40,11 @@ typedef enum {
     CGFloat                     headImageViewSize;
     BOOL                        inFilter;       // 是否处于过滤模式
     BOOL                        needLoadMore;
-    BOOL                        enablefilter;
+//    BOOL                        enablefilter;
     BOOL                        isFirstLoadData;
 }
+
+@property (nonatomic, assign) BOOL enablefilter;
 
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, assign) CGFloat   tableViewCellHeight;
@@ -180,4 +182,12 @@ typedef enum {
  *
  */
 - (void)getCloudUserByID:(NSString *)cloudId;
+
+- (void)filterContentForSearchText:(NSString*)searchText
+                             scope:(NSString*)scope;
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)sender;
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)sender;
+
 @end

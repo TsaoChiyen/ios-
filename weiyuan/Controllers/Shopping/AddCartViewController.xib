@@ -10,6 +10,7 @@
                 <outlet property="addressLabel" destination="oH5-Fm-0N2" id="0ep-RD-S8B"/>
                 <outlet property="button" destination="YWO-Hx-rJZ" id="6fC-ME-OdJ"/>
                 <outlet property="noticeView" destination="L51-vn-FYj" id="3Us-9X-dPD"/>
+                <outlet property="payTypeLabel" destination="7p1-C6-dVG" id="8k6-O9-qlS"/>
                 <outlet property="personLabel" destination="waj-gG-D0t" id="PSZ-qL-3id"/>
                 <outlet property="phoneLabel" destination="Unq-d9-F9I" id="FkS-dU-zG3"/>
                 <outlet property="view" destination="tYR-f8-C7g" id="Nfk-5s-iVr"/>
@@ -21,27 +22,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="联系人" minimumFontSize="17" id="waj-gG-D0t" customClass="KTextField">
-                    <rect key="frame" x="15" y="8" width="290" height="35"/>
+                    <rect key="frame" x="15" y="8" width="290" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="9wg-wj-7Co"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="联系电话" minimumFontSize="17" id="Unq-d9-F9I" customClass="KTextField">
-                    <rect key="frame" x="15" y="51" width="290" height="35"/>
+                    <rect key="frame" x="15" y="48" width="290" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="56P-Bz-DVr"/>
                     </connections>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="scaleToFill" id="L51-vn-FYj" customClass="KTextView">
-                    <rect key="frame" x="15" y="137" width="290" height="128"/>
+                    <rect key="frame" x="15" y="168" width="290" height="128"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -51,17 +52,27 @@
                     </connections>
                 </textView>
                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="地址" minimumFontSize="17" id="oH5-Fm-0N2" customClass="KTextField">
-                    <rect key="frame" x="15" y="94" width="290" height="35"/>
+                    <rect key="frame" x="15" y="88" width="290" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Ft8-YM-KRi"/>
                     </connections>
                 </textField>
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="选择支付方式" minimumFontSize="17" id="7p1-C6-dVG" customClass="KTextField">
+                    <rect key="frame" x="15" y="128" width="290" height="32"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Kmw-G9-WTD"/>
+                    </connections>
+                </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YWO-Hx-rJZ">
-                    <rect key="frame" x="20" y="282" width="280" height="40"/>
+                    <rect key="frame" x="20" y="304" width="280" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="提交">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

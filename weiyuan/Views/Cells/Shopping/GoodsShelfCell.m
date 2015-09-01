@@ -25,7 +25,7 @@
     self.goodsName.text = it.name;
     self.price.text = it.price;
     self.number.text = it.number;
-    self.status.text = (it.status.integerValue == 0?@"未上架":@"已上架");
+    self.status.text = (it.status.integerValue == 2?@"已上架":@"未上架");
     self.btnSelect.selected = it.selected.boolValue;
     self.selected = it.selected.boolValue;
     

@@ -170,16 +170,80 @@
 #pragma mark - Method
 
 /**
+ *  Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *  用户注册协议(user/apiother/regist)
+ *  @return     html
+ */
+- (NSURLRequest *)getProtocol {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@user/apiother/regist", KBSSDKAPIDomain]];
+    return [NSURLRequest requestWithURL:url];
+}
+
+/**
+ *  Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *  帮助中心(user/apiother/help)
+ *  @return     html
+ */
+- (NSURLRequest *)getHelp {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@user/apiother/help", KBSSDKAPIDomain]];
+    return [NSURLRequest requestWithURL:url];
+}
+
+/**
+ *  Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *  获取验证码(user/apiother/getCode)
+ *  @param phone    手机号码
+ */
+- (void)getPhoneCode:(NSString*)phone {
+    needUID = NO;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:phone forKey:@"phone"];
+    [self loadRequestWithDoMain:YES
+                     methodName:@"user/apiother/getCode"
+                         params:params
+                   postDataType:KSTRequestPostDataTypeNormal];
+}
+
+/**
+ *  验证验证码(/user/apiother/checkCode)
+ *  @param phone	true	string	手机号
+ *  @param code     true	string	验证码
+ */
+- (void)checkVerCodeWithPhone:(NSString *)phone andCode:(NSString *)code {
+    needUID = NO;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:code  forKey:@"code"];
+    [params setObject:phone forKey:@"phone"];
+    [self loadRequestWithDoMain:YES
+                     methodName:@"user/apiother/getCode"
+                         params:params
+                   postDataType:KSTRequestPostDataTypeNormal];
+}
+
+/**
+ *  更新用户的Gps user/api/upateGps
+ *  @param uid false string 登录用户id
+ *  @param lat true string 纬度
+ *  @param lng true string 经度
+ *  @throws WeiYuanException
+ */
+- (void)updataGpsWithLat:(NSString *)lat andLng:(NSString *)lng {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:lat forKey:@"lat"];
+    [params setObject:lng forKey:@"lng"];
+    [self loadRequestWithDoMain:YES
+                     methodName:@"user/api/upateGps"
+                         params:params
+                   postDataType:KSTRequestPostDataTypeNormal];
+}
+
+/**
  *	Copyright © 2014 sam Inc. All rights reserved.
- *
  *	登录
- *
  *	@param 	Phone 	手机号
  *	@param 	pwd 	密码
  */
-- (void)loginWithUserPhone:(NSString *)phone
-                  password:(NSString *)pwd
-{
+- (void)loginWithUserPhone:(NSString *)phone password:(NSString *)pwd {
     needUID = NO;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:phone forKey:@"phone"];
@@ -190,22 +254,14 @@
                    postDataType:KSTRequestPostDataTypeNormal];
 }
 
-//	Copyright © 2015 tcy@dreamisland. All rights reserved.
-// ======== 获取地区表 =========
+/**
+ *  Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *  获取地区表
+ */
 - (void)getAreaList {
     [self loadRequestWithDoMain:YES
                      methodName:@"user/apiother/areaList"
                          params:nil
-                   postDataType:KSTRequestPostDataTypeNormal];
-}
-
-// ======== 获取验证码 =========
-- (void)getPhoneCode:(NSString*)phone {
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:phone forKey:@"phone"];
-    [self loadRequestWithDoMain:YES
-                     methodName:@"user/apiother/getCode"
-                         params:params
                    postDataType:KSTRequestPostDataTypeNormal];
 }
 
@@ -1795,6 +1851,9 @@
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
 
+    // status=>2; 是上架的产品，只有上架的产品才能成为商品
+    [params setObject:@"2"          forKey:@"status"];
+
     if (page > 1)   [params setObject:@(page).stringValue forKey:@"page"];
     if (shopid)     [params setObject:shopid        forKey:@"shopid"];
     if (categoryid) [params setObject:categoryid    forKey:@"categoryid"];
@@ -1996,6 +2055,35 @@
  *	Copyright © 2014 sam Inc. All rights reserved.
  *	Copyright © 2015 tcy@dreamisland. All rights reserved.
  *
+ *	修改商品库
+ *
+ *  @param price         商品价格   (必填)
+ *  @param number        商品条码
+ *      data:     数据格式:1,200,50 <=>商品 ID,价格,库存
+ *                  这里的 data 应该是ShlefGoods数组
+ */
+- (void)editShopGoodsWithId:(NSString *)goodsId
+                      price:(NSString *)price
+                     number:(NSString *)number
+{
+    if (!goodsId) {
+        return;
+    }
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    NSString *data = [NSString stringWithFormat:@"%@,%@,%@", goodsId, price, number];
+    [params setObject:data forKey:@"data"];
+    
+    [self loadRequestWithDoMain:YES
+                     methodName:@"shop/api/goodStatus"
+                         params:params
+                   postDataType:KSTRequestPostDataTypeNormal];
+}
+
+/**
+ *	Copyright © 2014 sam Inc. All rights reserved.
+ *	Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *
  *	删除产品库
  *
  *  @param goodsIds   产品 ID,多个用“,”逗号隔开
@@ -2027,7 +2115,7 @@
  *
  *	商品上下架
  *
- *  @param status:   枚举值:1 上架 2 下架
+ *  @param status:   枚举值:1 下架 2 上架
  *  @param data:     数据格式:1,200,50 <=>商品 ID,价格,库存
  *                  这里的 data 应该是ShlefGoods数组
  *
@@ -2050,11 +2138,8 @@
     NSMutableArray *arr = [NSMutableArray array];
     
     if (data && data.count > 0) {
-        [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if ([obj isKindOfClass:[Good class]]) {
-                Good *item = obj;
-                [arr addObject:[item getShelfString]];
-            }
+        [data enumerateObjectsUsingBlock:^(Good *obj, NSUInteger idx, BOOL *stop) {
+                [arr addObject:[obj getShelfString]];
         }];
     }
     
@@ -2065,47 +2150,6 @@
     
     [self loadRequestWithDoMain:YES
                      methodName:@"shop/api/goodStatus"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
-}
-
-/**
- *	Copyright © 2014 sam Inc. All rights reserved.
- *	Copyright © 2015 tcy@dreamisland. All rights reserved.
- *
- *	商品列表编辑
- *
- *  @param data:     数据格式:1,200,50 <=>商品 ID,价格,库存
- *                  这里的 data 应该是ShlefGoods数组
- *
- */
-- (void)shelfGoodsWithData:(NSArray *)data
-{
-    if (!data) {
-        return;
-    }
-    
-    if (data.count == 0) {
-        return;
-    }
-    
-    NSMutableArray *arr = [NSMutableArray array];
-    
-    if (data && data.count) {
-        [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if ([obj isKindOfClass:[Good class]]) {
-                Good *item = obj;
-                [arr addObject:[item getShelfString]];
-            }
-        }];
-    }
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    
-    [params setObject:[arr componentsJoinedByString:@";"] forKey:@"id"];
-    
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/editGoodFast"
                          params:params
                    postDataType:KSTRequestPostDataTypeNormal];
 }
@@ -2616,7 +2660,7 @@
  *	商品库列表
  *
  *  @param  categoryid:  分类 ID
- *  @param  status:      状态 0: 未上架； 1: 已上架
+ *  @param  status:      状态 1: 未上架； 2: 已上架
  *
  */
 -(void)getProductListWithCategoryid:(NSInteger)categoryid
@@ -2625,7 +2669,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     if (categoryid > 0) [params setObject:@(categoryid).stringValue forKey:@"categoryid"];
-    if (status >= 0) [params setObject:@(status).stringValue forKey:@"status"];
+    if (status > 0)     [params setObject:@(status).stringValue     forKey:@"status"];
     
     [self loadRequestWithDoMain:YES
                      methodName:@"shop/Api/productList"

@@ -311,10 +311,26 @@
     self.navigationItem.rightBarButtonItem = itemRight;
 }
 
-- (void)setLeftBarButtonImage:(UIImage*)img selector:(SEL)sel {
+//- (void)setLeftBarButtonImage:(UIImage*)img selector:(SEL)sel {
+//    UIButton * btn = [self buttonWithTitle:nil image:img selector:sel];
+//    CGRect rc = [btn frame];
+//    rc.size.width = 32;
+//    rc.size.height = 32;
+//    [btn setFrame:rc];
+//    UIBarButtonItem * itemLeft = [[UIBarButtonItem alloc] initWithCustomView:btn];
+//    self.navigationItem.leftBarButtonItem = itemLeft;
+//}
+//
+- (UIButton *)setLeftBarButtonImage:(UIImage*)img selector:(SEL)sel {
     UIButton * btn = [self buttonWithTitle:nil image:img selector:sel];
+    CGRect rc = [btn frame];
+    rc.size.width = 32;
+    rc.size.height = 32;
+    [btn setFrame:rc];
     UIBarButtonItem * itemLeft = [[UIBarButtonItem alloc] initWithCustomView:btn];
     self.navigationItem.leftBarButtonItem = itemLeft;
+    
+    return btn;
 }
 
 //- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -465,8 +481,8 @@
         _titleView = [[UIView alloc] initWithFrame:CGRectMake(17, 0, self.view.width - 17, 44)];
         _titleView.backgroundColor = [UIColor clearColor];
         
-        titlelab = [[UILabel alloc] initWithFrame:CGRectMake(-34, 0, self.view.width, 44)];
-        titlelab.font = [UIFont boldSystemFontOfSize:20];
+        titlelab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _titleView.width - 44, 44)];
+        titlelab.font = [UIFont boldSystemFontOfSize:18];
         titlelab.backgroundColor = [UIColor clearColor];
         titlelab.textColor = [UIColor whiteColor];
         titlelab.text = self.navigationItem.title;

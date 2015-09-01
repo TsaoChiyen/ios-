@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad
 {
-    enablefilter = YES;
+    self.enablefilter = YES;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"群聊";

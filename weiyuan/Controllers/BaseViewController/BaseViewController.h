@@ -85,7 +85,7 @@
 - (void)setLeftBarButton:(NSString*)rbtn selector:(SEL)sel;
 
 - (void)setRightBarButtonImage:(UIImage*)img highlightedImage:(UIImage*)himg selector:(SEL)sel;
-- (void)setLeftBarButtonImage:(UIImage*)img selector:(SEL)sel;
+- (UIButton *)setLeftBarButtonImage:(UIImage*)img selector:(SEL)sel;
 - (void)setLeftBarButton:(NSString*)title image:(UIImage*)img highlightedImage:(UIImage*)himg selector:(SEL)sel;
 
 #pragma mark - Bar Style

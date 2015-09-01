@@ -21,6 +21,9 @@
 #import "GoodDetailViewController.h"
 #import "ShopGoodsViewController.h"
 //#import "ShopViewController.h"
+#import "JSBadgeView.h"
+#import "ShoppingCart.h"
+#import "ShoppingCartViewController.h"
 
 @interface ShoppingCityViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -37,10 +40,12 @@
     NSInteger currentSearch;
 
     UICollectionView * collectionView;
+    UICollectionView * filterCollectionView;
     
     UIView *collectionMenuView;
     UIView *tableMenuView;
     
+    NSMutableArray *filterGoods;
     NSMutableArray *contentGoods;
     NSMutableArray *arrArea;
     NSArray *arrOrder;
@@ -50,6 +55,8 @@
     NSString *currentCity;
     NSString *currentShopCity;
     NSInteger currentSort;
+    
+    JSBadgeView         * jSBadgeView;
 }
 
 @end
@@ -57,6 +64,7 @@
 @implementation ShoppingCityViewController
 
 - (void)viewDidLoad {
+    self.enablefilter = YES;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setEdgesNone];
@@ -65,7 +73,6 @@
     currentSearch = 0;
     
     contentGoods = [NSMutableArray array];
-//    arrArea = [NSMutableArray array];
     [contentArr addObject:@"0"];
     arrOrder = @[@"价格从低到高", @"价格从高到低"];
 
@@ -73,6 +80,9 @@
     [self.view addSubview:headerView];
     tableView.top = headerView.height;
     tableView.height -= tableView.top;
+
+    filterTableView.top = headerView.height;
+    filterTableView.height -= filterTableView.top;
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -89,7 +99,23 @@
     collectionView.dataSource = self;
     collectionView.backgroundColor = [UIColor clearColor];
     [self.view insertSubview:collectionView atIndex:0];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+
+    if (self.enablefilter) {
+        filterCollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:flowLayout];
+        //注册
+        [filterCollectionView registerClass:[GoodsCollectionViewCell class] forCellWithReuseIdentifier:@"GoodsCollectionViewCell"];
+        //设置代理
+        filterCollectionView.tag = 11;
+        filterCollectionView.delegate = self;
+        filterCollectionView.dataSource = self;
+        filterCollectionView.backgroundColor = [UIColor clearColor];
+        [self.view insertSubview:filterCollectionView atIndex:0];
+        
+        filterGoods = [NSMutableArray array];
+    }
+
+//    self.view.backgroundColor = [UIColor lightGrayColor];
+    [self floatButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -110,9 +136,11 @@
         
         if (currentSearch == 0) {
             tableView.left = self.view.width;
-//            tableView.hidden = YES;
+            filterTableView.left = self.view.width;
         }
     }
+    
+    jSBadgeView.badgeText = @([ShoppingCart goodsCount]).stringValue;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -166,7 +194,7 @@
 
 - (UIView *)headerBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 72)];
-    view.backgroundColor = UIColorFromRGB(0xe0ae80);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     
     collectionMenuView = [self getCollectionMenuView];
     [view addSubview:collectionMenuView];
@@ -199,7 +227,7 @@
 
 - (UIView *)getCollectionMenuView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 40, self.view.width, 32)];
-    view.backgroundColor = UIColorFromRGB(0xe0e0e0);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     
     CGRect frame = CGRectMake(16, 0, 96, 32);
     btnCategory = [self buttonInActionbar:view title:@"商品分类" frame:frame];
@@ -219,7 +247,7 @@
 - (UIView *)getTableMenuView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(320, 40, self.view.width, 32)];
 
-    view.backgroundColor = UIColorFromRGB(0xe0e0e0);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
     
     CGRect frame = CGRectMake(112, 0, 96, 32);
     btnShopAreaChooser = [self buttonInActionbar:view title:@"地区筛选" frame:frame];
@@ -251,12 +279,15 @@
             
             [UIView animateWithDuration:0.25 animations:^{
                 collectionView.left = 0;
+                filterCollectionView.left = 0;
                 collectionMenuView.left = 0;
                 tableView.left = self.view.width;
+                filterTableView.left = self.view.width;
                 tableMenuView.left = self.view.width;
             } completion:^(BOOL finished) {
                 if (finished) {
                     tableView.hidden = YES;
+                    filterTableView.hidden = YES;
                     tableMenuView.hidden = YES;
                 }
             }];
@@ -269,13 +300,16 @@
             
             [UIView animateWithDuration:0.25 animations:^{
                 tableView.left = 0;
+                filterTableView.left = 0;
                 tableMenuView.left = 0;
                 
                 collectionView.left = -self.view.width;
+                filterCollectionView.left = -self.view.width;
                 collectionMenuView.left = -self.view.width;
             } completion:^(BOOL finished) {
                 if (finished) {
                     collectionView.hidden = YES;
+                    filterCollectionView.hidden = YES;
                     collectionMenuView.hidden = YES;
                 }
             }];
@@ -286,10 +320,24 @@
     }
 }
 
+- (void)floatButton {
+    UIButton *cartButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cartButton setFrame:CGRectMake(self.view.width - 72, self.view.height - 168, 44, 44)];
+    [cartButton setImage:LOADIMAGE(@"商户购物车") forState:UIControlStateNormal];
+    [cartButton addTarget:self action:@selector(btnItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+    cartButton.tag = 0;
+    [self.view insertSubview:cartButton aboveSubview:tableView];
+    cartButton.contentMode = UIViewContentModeCenter;
+
+    jSBadgeView = [[JSBadgeView alloc] initWithParentView:cartButton alignment:JSBadgeViewAlignmentTopRight];
+}
+
 - (void)btnItemPressed:(UIButton*)sender {
     switch (sender.tag) {
-        case 2:
-            break;
+        case 0:
+        {
+            [self pushViewController:[[ShoppingCartViewController alloc] init]];
+        }   break;
             
         case 10:
         {
@@ -302,8 +350,7 @@
                     [menuView showInView:self.view origin:CGPointMake(0, 0)];
                 }
             }
-        }
-            break;
+        }   break;
             
         case 11:
         case 20:
@@ -316,9 +363,7 @@
                     [menuView showInView:self.view origin:CGPointMake(96, 0)];
                 }
             }
-        }
-
-            break;
+        }   break;
             
         case 12:
         {
@@ -330,9 +375,7 @@
                     [menuView showInView:self.view origin:CGPointMake(tableView.width - MENUVIEW_WIDTH, 0)];
                 }
             }
-        }
-
-            break;
+        }   break;
             
         default:
             break;
@@ -344,9 +387,9 @@
 
 - (void)popoverView:(MenuView *)sender didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (sender.tag == 10) {
-        currentCategoryId = buttonIndex;
-        [btnCategory setTitle:[ShopCategroy getCategoryNameByIdx:buttonIndex]
-                     forState:UIControlStateNormal];
+        ShopCategroy *item = [ShopCategroy getCategoryByIdx:buttonIndex];
+        currentCategoryId = item.id.integerValue;
+        [btnCategory setTitle:item.name forState:UIControlStateNormal];
         [self requestData];
     } else if (sender.tag == 11) {
         if (buttonIndex > 0) {
@@ -416,19 +459,7 @@
             if (array && array.count > 0) {
                 [array enumerateObjectsUsingBlock:^(id goodData, NSUInteger idx, BOOL *stop) {
                     Good *item = [Good objWithJsonDic:goodData];
-                    
-                    NSArray *pics = [goodData getArrayForKey:@"picture"];
-                    NSMutableArray *arrPics = [NSMutableArray array];
-                    
-                    if (pics && pics.count > 0) {
-                        [pics enumerateObjectsUsingBlock:^(id picData, NSUInteger idx, BOOL *stop) {
-                            picture *pic = [picture objWithJsonDic:picData];
-                            [arrPics addObject:pic];
-                        }];
-                    }
-                    
-                    item.picture = arrPics;
-                    
+                   
                     [contentGoods addObject:item];
                 }];
             }
@@ -439,25 +470,174 @@
 
             if (array && array.count > 0) {
                 [array enumerateObjectsUsingBlock:^(id shopData, NSUInteger idx, BOOL *stop) {
-                    Shop *item = [Shop objWithJsonDic:shopData];
-                    item.user = [User objWithJsonDic:[shopData getDictionaryForKey:@"user"]];
-                    [contentArr addObject:item];
+                    Shop *shop = [Shop objWithJsonDic:shopData];
+
+                    if (shop.goods.count > 0) {
+                        NSMutableArray *arrGoods = [NSMutableArray array];
+                        
+                        [shop.goods enumerateObjectsUsingBlock:^(Good *goods, NSUInteger idx, BOOL *stop) {
+                            if ([goods.status isEqual:@"2"]) {
+                                [arrGoods addObject:goods];
+                            }
+                        }];
+                        
+                        shop.goods = arrGoods;
+                        
+                        if (shop.goods.count > 0) {
+                            shop.user = [User objWithJsonDic:[shopData getDictionaryForKey:@"user"]];
+                            [contentArr addObject:shop];
+                        }
+                    }
                 }];
             }
         }
         
         if (currentSearch == 0) {
             [collectionView reloadData];
-//            collectionView.hidden = NO;
-//            tableView.hidden = YES;
         } else {
             [tableView reloadData];
-//            collectionView.hidden = YES;
-//            tableView.hidden = NO;
         }
     }
 
     return YES;
+}
+
+#pragma mark - searchFilter
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)sender {
+    if (sender.text.length == 0) {
+        if (currentSearch == 0) {
+            [filterGoods removeAllObjects];
+            [filterCollectionView reloadData];
+            [collectionView reloadData];
+        } else {
+            [filterArr removeAllObjects];
+            [filterTableView reloadData];
+            [tableView reloadData];
+        }
+        inFilter = NO;
+    }
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)sender {
+    if (currentSearch == 0) {
+        [filterGoods removeAllObjects];
+        [filterCollectionView reloadData];
+        [collectionView reloadData];
+    } else {
+        [filterArr removeAllObjects];
+        [filterTableView reloadData];
+        [tableView reloadData];
+    }
+    
+    inFilter = NO;
+}
+
+/**
+ *	Copyright © 2014 sam Inc. All rights reserved.
+ *
+ *	搜索时根据输入的字符过滤tableview
+ *
+ */
+- (void)textFieldDidChange:(UITextField*)sender {
+    if (sender.markedTextRange != nil) {
+        return;
+    }
+    if (currentSearch == 0) {
+        [filterGoods removeAllObjects];
+    } else {
+        [filterArr removeAllObjects];
+    }
+    UITextField *_field = (UITextField *)sender;
+    NSString * str = _field.text;
+    if (str.length == 0) {
+        if (currentSearch == 0) {
+            [filterCollectionView reloadData];
+            [UIView animateWithDuration:0.25 animations:^{
+                filterCollectionView.alpha = 0;
+                collectionView.alpha = 1;
+            } completion:^(BOOL finished) {
+                if (finished) {
+                    inFilter = NO;
+                    filterCollectionView.hidden = YES;
+                }
+            }];
+        } else {
+            [filterTableView reloadData];
+            [UIView animateWithDuration:0.25 animations:^{
+                filterTableView.alpha = 0;
+                tableView.alpha = 1;
+            } completion:^(BOOL finished) {
+                if (finished) {
+                    inFilter = NO;
+                    filterTableView.hidden = YES;
+                }
+            }];
+        }
+    } else {
+        [self filterContentForSearchText:_field.text scope:nil];
+        if (!inFilter) {
+            if (currentSearch == 0) {
+                filterCollectionView.alpha = 0;
+                filterCollectionView.hidden = NO;
+                inFilter = YES;
+                [UIView animateWithDuration:0.25 animations:^{
+                    collectionView.alpha = 0;
+                    filterCollectionView.alpha = 1;
+                } completion:^(BOOL finished) {
+                    if (finished) {
+                        [filterCollectionView reloadData];
+                    }
+                }];
+            } else {
+                filterTableView.alpha = 0;
+                filterTableView.hidden = NO;
+                inFilter = YES;
+                [UIView animateWithDuration:0.25 animations:^{
+                    tableView.alpha = 0;
+                    filterTableView.alpha = 1;
+                } completion:^(BOOL finished) {
+                    if (finished) {
+                        [filterTableView reloadData];
+                    }
+                }];
+            }
+        } else {
+            if (currentSearch == 0) {
+                [filterCollectionView reloadData];
+            } else {
+                [filterTableView reloadData];
+            }
+        }
+        
+    }
+    
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText
+                             scope:(NSString*)scope
+{
+    if (currentSearch == 0) {
+        for (Good *it in contentGoods) {
+            if (([it.content rangeOfString:searchText].location <= it.content.length) ||
+                ([it.name rangeOfString:searchText].location <= it.name.length) ||
+                ([it.price rangeOfString:searchText].location <= it.price.length) ||
+                ([it.introduce rangeOfString:searchText].location <= it.introduce.length) ||
+                ([it.barcode rangeOfString:searchText].location <= it.barcode.length)) {
+                [filterGoods addObject:it];
+            }
+        }
+    } else {
+        for (Shop *it in contentArr) {
+            if (([it.content rangeOfString:searchText].location <= it.content.length) ||
+                ([it.name rangeOfString:searchText].location <= it.name.length) ||
+                ([it.username rangeOfString:searchText].location <= it.username.length) ||
+                ([it.city rangeOfString:searchText].location <= it.city.length)) {
+                [filterArr addObject:it];
+            }
+        }
+    }
 }
 
 #pragma mark - collectionView delegate
@@ -470,7 +650,7 @@
     if (currentSearch == 1) {
         return 0;
     }
-    return contentGoods.count;
+    return inFilter?filterGoods.count:contentGoods.count;
 }
 
 #pragma mark --UICollectionViewDelegateFlowLayout
@@ -499,7 +679,7 @@
     cell.superCollectionView = sender;
     cell.backgroundColor = [UIColor clearColor];
     
-    Good *item = contentGoods[indexPath.row];
+    Good *item = [inFilter?filterGoods:contentGoods objectAtIndex:indexPath.row];
     cell.name = item.name;
     cell.price = [NSString stringWithFormat:@"￥%0.2f", item.price.floatValue];
     cell.priceLabel.width = cell.width;
@@ -557,7 +737,7 @@
     if (currentSearch == 0) {
         return 0;
     }
-    return contentArr.count;
+    return inFilter?filterArr.count:contentArr.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -578,13 +758,20 @@
 - (UITableViewCell*)tableView:(UITableView *)sender cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString * cellIdentifier = @"ShopCell";
     if (!fileNib) {
-        [tableView registerClass:ShopCell.class forCellReuseIdentifier:@"ShopCell"];
         fileNib = [UINib nibWithNibName:@"ShopCell" bundle:nil];
+
+        [tableView registerClass:ShopCell.class forCellReuseIdentifier:@"ShopCell"];
         [tableView registerNib:fileNib forCellReuseIdentifier:cellIdentifier];
+        
+        if (self.enablefilter) {
+            [filterTableView registerClass:ShopCell.class forCellReuseIdentifier:@"ShopCell"];
+            [filterTableView registerNib:fileNib forCellReuseIdentifier:cellIdentifier];
+        }
     }
     ShopCell * cell = [sender dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.superTableView = sender;
-    Shop * shop = [contentArr objectAtIndex:indexPath.section];
+    Shop * shop = [inFilter?filterArr:contentArr objectAtIndex:indexPath.section];
+    //[contentArr objectAtIndex:indexPath.section];
     cell.shop = shop;
     cell.imageView.hidden = YES;
     cell.topLine = NO;

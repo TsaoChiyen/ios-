@@ -116,7 +116,7 @@
 
 - (UIView *)headerBar {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 44)];
-    view.backgroundColor = UIColorFromRGB(0xe0e0e0e0);
+    view.backgroundColor = UIColorFromRGB(0xeeeeee);
 
     CGRect frame = CGRectMake(10, 4, (self.view.width - 20) * 0.5, 36);
     UIButton *btn = [self buttonInView:view title:@"定位城市" frame:frame];

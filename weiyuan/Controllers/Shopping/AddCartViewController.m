@@ -10,18 +10,32 @@
 #import "TextInput.h"
 #import "ShoppingCart.h"
 #import "Shop.h"
+#import "TPickerView.h"
 
 @interface AddCartViewController () {
     IBOutlet KTextField * addressLabel;
     IBOutlet KTextField * personLabel;
     IBOutlet KTextField * phoneLabel;
+    IBOutlet KTextField * payTypeLabel;
     IBOutlet KTextView  * noticeView;
     IBOutlet UIButton   * button;
+
+    NSArray *arrayPayType;
 }
 
 @end
 
 @implementation AddCartViewController
+
+- (id)init {
+    if ((self = [super init])) {
+        arrayPayType = @[@"在线支付"
+                         ,@"货到付款"
+                         ,@"上门自提"];
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +47,7 @@
     [personLabel enableBorder];
     [phoneLabel enableBorder];
     [noticeView enableBorder];
+    [payTypeLabel enableBorder];
     noticeView.placeholder = @"备注 选填";
     [button commonStyle];
 }
@@ -56,6 +71,18 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (isFirstAppear) {
+//        User *user = [[BSEngine currentEngine] user];
+//        
+//        personLabel.text = user.name;
+//        phoneLabel.text = user.phone;
+    }
+    
+}
+
 - (IBAction)applyShop {
     if (!addressLabel.text.hasValue) {
         [self showText:@"请选择地址"];
@@ -63,6 +90,8 @@
         [self showText:@"请输入联系人"];
     } else if (!phoneLabel.text.hasValue) {
         [self showText:@"请输入联系电话"];
+    } else if (!payTypeLabel.text.hasValue) {
+        [self showText:@"请选择支付方式"];
     } else {
         [super startRequest];
         // 商品格式：商品id1*count1, id2*count2
@@ -73,7 +102,7 @@
             if (str.hasValue) {
                 [str appendString:@","];
             }
-            [str appendFormat:@"%@*%d", obj.goodid, (int)obj.goodCount];
+            [str appendFormat:@"%@*%d", obj.goodid, obj.goodCount.integerValue];
         }];
         [client submitOrder:str
                        type:@"1"
@@ -110,9 +139,28 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)sender {
+    if (sender == payTypeLabel) {
+        TPickerView *picker = [[TPickerView alloc] initWithTitle:@"选择支付方式" data:arrayPayType delegate:self];
+        picker.tag = 0;
+        [picker showInView:self.view];
+        
+        if (currentInputView) {
+            [currentInputView resignFirstResponder];
+        }
+        
+        return NO;
+    }
+    
     currentInputView = sender;
     return YES;
 }
 
+- (void)actionSheet:(TPickerView *)sender clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        if (sender.tag == 0) {
+            payTypeLabel.text = sender.selected;
+        }
+    }
+}
 
 @end
