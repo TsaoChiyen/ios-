@@ -7,7 +7,16 @@
 //
 
 #import "Comment.h"
+#import "User.h"
 
 @implementation Comment
+
+- (void)updateWithJsonDic:(NSDictionary *)dic {
+    [super updateWithJsonDic:dic];
+    
+    if ([dic getDictionaryForKey:@"user"]) {
+        _user = [User objWithJsonDic:[dic getDictionaryForKey:@"user"]];
+    }
+}
 
 @end

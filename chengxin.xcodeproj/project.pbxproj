@@ -1760,6 +1760,13 @@
 		331646691B8BF13500C3A122 /* ExibitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExibitionViewController.h; sourceTree = "<group>"; };
 		3316466A1B8BF13500C3A122 /* ExibitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExibitionViewController.m; sourceTree = "<group>"; };
 		331646731B8BF85100C3A122 /* weiyuan */ = {isa = PBXFileReference; lastKnownFileType = folder; name = weiyuan; path = "../../../../Datas/360云盘/AppDocuments/劉昊的項目/承芯项目/源码/ios源码/weiyuan"; sourceTree = "<group>"; };
+		3316601F1B97421F00F622FC /* Bill.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = Bill.java; path = "../安卓源码/src/com/chengxin/Entity/Bill.java"; sourceTree = "<group>"; };
+		331660201B9748C100F622FC /* Demand.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = Demand.java; path = "../安卓源码/src/com/chengxin/Entity/Demand.java"; sourceTree = "<group>"; };
+		331B49C61B959CC500214178 /* activity */ = {isa = PBXFileReference; lastKnownFileType = folder; name = activity; path = "../安卓源码/activity"; sourceTree = "<group>"; };
+		331B49C71B959CC500214178 /* adapter */ = {isa = PBXFileReference; lastKnownFileType = folder; name = adapter; path = "../安卓源码/adapter"; sourceTree = "<group>"; };
+		331B49C81B959CC500214178 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../安卓源码/assets"; sourceTree = "<group>"; };
+		331B49C91B959CC500214178 /* async */ = {isa = PBXFileReference; lastKnownFileType = folder; name = async; path = "../安卓源码/async"; sourceTree = "<group>"; };
+		331B49CA1B959CC500214178 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = "../安卓源码/res"; sourceTree = "<group>"; };
 		335217E31B8ED8FD00E06C4A /* ExbitionMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExbitionMainViewController.h; sourceTree = "<group>"; };
 		335217E41B8ED8FD00E06C4A /* ExbitionMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExbitionMainViewController.m; sourceTree = "<group>"; };
 		335217E61B8F4BF600E06C4A /* ShopPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopPasswordViewController.h; sourceTree = "<group>"; };
@@ -2407,6 +2414,8 @@
 		30273F351A5A6BAC00282582 = {
 			isa = PBXGroup;
 			children = (
+				331660201B9748C100F622FC /* Demand.java */,
+				3316601F1B97421F00F622FC /* Bill.java */,
 				331394451B9137CE002446CA /* 安卓源码 */,
 				331646731B8BF85100C3A122 /* weiyuan */,
 				330C9C7D1B82DD2A0024F7CA /* 服务器源码 */,
@@ -4028,6 +4037,11 @@
 		331394451B9137CE002446CA /* 安卓源码 */ = {
 			isa = PBXGroup;
 			children = (
+				331B49C61B959CC500214178 /* activity */,
+				331B49C71B959CC500214178 /* adapter */,
+				331B49C81B959CC500214178 /* assets */,
+				331B49C91B959CC500214178 /* async */,
+				331B49CA1B959CC500214178 /* res */,
 				331394461B9137F9002446CA /* src */,
 			);
 			name = "安卓源码";

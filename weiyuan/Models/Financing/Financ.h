@@ -9,7 +9,7 @@
 #import "NSBaseObject.h"
 
 /**
- *  融资商户表
+ *  融资商户注册表
  */
 @interface Financ : NSBaseObject
 

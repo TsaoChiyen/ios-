@@ -14,9 +14,11 @@
 
 @property (nonatomic, strong) NSString  * content;
 @property (nonatomic, strong) NSString  * createtime;
-//@property (nonatomic, strong) NSString  * goods_id;
+@property (nonatomic, strong) NSString  * goods_id;
 @property (nonatomic, strong) NSString  * id;
 @property (nonatomic, strong) NSString  * star;
 @property (nonatomic, strong) NSString  * uid;
+
 @property (nonatomic, strong) User  * user;
+
 @end

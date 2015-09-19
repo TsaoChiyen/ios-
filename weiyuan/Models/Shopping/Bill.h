@@ -7,7 +7,8 @@
 //
 
 #import "NSBaseObject.h"
-#import "User.h"
+
+@class User;
 
 @interface Bill : NSBaseObject
 

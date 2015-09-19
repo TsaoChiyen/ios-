@@ -2058,7 +2058,7 @@
  *	修改商品库
  *
  *  @param price         商品价格   (必填)
- *  @param number        商品条码
+ *  @param number        商品库存量
  *      data:     数据格式:1,200,50 <=>商品 ID,价格,库存
  *                  这里的 data 应该是ShlefGoods数组
  */

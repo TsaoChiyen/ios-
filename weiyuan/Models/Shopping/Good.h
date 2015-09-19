@@ -8,6 +8,8 @@
 
 #import "NSBaseObject.h"
 
+@class Comment;
+
 @interface Good : NSBaseObject
 
 @property (nonatomic, strong) NSString  * id;
@@ -20,7 +22,6 @@
 @property (nonatomic, strong) NSString  * commentcount;
 @property (nonatomic, strong) NSString  * createtime;
 @property (nonatomic, strong) NSString  * isfavorite;
-@property (nonatomic, strong) NSArray   * picture;
 @property (nonatomic, strong) NSString  * introduce;
 @property (nonatomic, strong) NSString  * content;
 @property (nonatomic, strong) NSString  * parameter;
@@ -29,6 +30,9 @@
 @property (nonatomic, strong) NSString  * status;
 @property (nonatomic, assign) NSString  * selected;
 @property (nonatomic, strong) NSString  * count;
+
+@property (nonatomic, strong) NSArray   * picture;
+@property (nonatomic, strong) Comment   * comment;
 
 - (NSString *)getShelfString;
 

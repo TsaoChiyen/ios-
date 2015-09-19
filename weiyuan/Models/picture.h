@@ -9,7 +9,9 @@
 #import "NSBaseObject.h"
 
 @interface picture : NSBaseObject
+
 @property (nonatomic, strong) NSString  * key;
 @property (nonatomic, strong) NSString  * smallUrl;
 @property (nonatomic, strong) NSString  * originUrl;
+
 @end
