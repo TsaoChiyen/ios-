@@ -43,7 +43,12 @@
 
             Ivar thisIvar = vars[i];
             key = [NSString stringWithUTF8String:ivar_getName(thisIvar)];  //获取成员变量的名字
-            key = [key stringByReplacingOccurrencesOfString:@"_" withString:@""];
+            NSRange range = [key rangeOfString:@"_"];
+            
+            if (range.length > 0) {
+                key = [key stringByReplacingCharactersInRange:range withString:@""];
+            }
+//            key = [key stringByReplacingOccurrencesOfString:@"_" withString:@""];
             id value = [dic objectForKey:key];
             
             // see Objective-C Runtime Programming Guide > Type Encodings.

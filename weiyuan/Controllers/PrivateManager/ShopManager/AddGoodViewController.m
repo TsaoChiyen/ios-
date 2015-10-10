@@ -365,6 +365,7 @@
 - (void)QRcodeReaderDidFinish:(UIView *)sender data:(NSString *)data {
     if (data) {
         txtBarcode.text = data;
+        _goods.barcode = [NSString stringWithFormat:@"%@", data];
     }
 }
 

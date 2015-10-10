@@ -171,8 +171,6 @@
 		302741571A5A6C2C00282582 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 302740C01A5A6C2C00282582 /* build-libidn.sh */; };
 		302741581A5A6C2C00282582 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 302740C21A5A6C2C00282582 /* libidn.a */; };
 		302741591A5A6C2C00282582 /* XMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 302740C61A5A6C2C00282582 /* XMPPManager.m */; };
-		3027415A1A5A6C2C00282582 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 302740DF1A5A6C2C00282582 /* libzbar.a */; };
-		3027415B1A5A6C2C00282582 /* zbarSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 302740E11A5A6C2C00282582 /* zbarSDK.a */; };
 		3027415F1A5A6C6A00282582 /* AreaCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3027415C1A5A6C6A00282582 /* AreaCode.plist */; };
 		302741601A5A6C6A00282582 /* emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3027415D1A5A6C6A00282582 /* emoji.plist */; };
 		302741611A5A6C6A00282582 /* emoji2text.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3027415E1A5A6C6A00282582 /* emoji2text.plist */; };
@@ -360,11 +358,13 @@
 		330DB0C51B904DF1004AFCBE /* menu_show_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330DB0BD1B904DF1004AFCBE /* menu_show_d@2x.png */; };
 		330E60791B8081FE002A859F /* BaseMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 330E60781B8081FE002A859F /* BaseMenuItem.m */; };
 		330FB1161B88A5F900E66C48 /* GoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 330FB1141B88A5F900E66C48 /* GoodsCollectionViewCell.m */; };
+		331292C21BB54D92008E788E /* libUPPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 331292C01BB54D92008E788E /* libUPPayPlugin.a */; };
+		331292C51BB54DED008E788E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 331292C41BB54DED008E788E /* QuartzCore.framework */; };
 		331306821B8D7CE50083F153 /* GoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313067E1B8D7CE50083F153 /* GoodDetailViewController.m */; };
 		331306831B8D7CE50083F153 /* GoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3313067F1B8D7CE50083F153 /* GoodDetailViewController.xib */; };
 		331306841B8D7CE50083F153 /* ShopGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331306811B8D7CE50083F153 /* ShopGoodsViewController.m */; };
 		331306871B8D7D100083F153 /* ShoppingCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331306861B8D7D100083F153 /* ShoppingCityViewController.m */; };
-		331306921B8D7DDC0083F153 /* AddCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331306891B8D7DDC0083F153 /* AddCartViewController.m */; };
+		331306921B8D7DDC0083F153 /* AddCartViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 331306891B8D7DDC0083F153 /* AddCartViewController.mm */; };
 		331306931B8D7DDC0083F153 /* AddCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3313068A1B8D7DDC0083F153 /* AddCartViewController.xib */; };
 		331306941B8D7DDC0083F153 /* ShopCategroyListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313068C1B8D7DDC0083F153 /* ShopCategroyListController.m */; };
 		331306951B8D7DDC0083F153 /* ShopCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313068E1B8D7DDC0083F153 /* ShopCommentViewController.m */; };
@@ -417,10 +417,15 @@
 		331307931B8DF0DA0083F153 /* 账单管理@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3313078D1B8DF0DA0083F153 /* 账单管理@2x.png */; };
 		3313D68D1B9379730002536A /* TPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313D68B1B9379730002536A /* TPickerView.m */; };
 		3313D68E1B9379730002536A /* TPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3313D68C1B9379730002536A /* TPickerView.xib */; };
+		33151F2E1BBADB910087FAF1 /* zbarSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 302740E11A5A6C2C00282582 /* zbarSDK.a */; };
 		3316466B1B8BF13500C3A122 /* ExibitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3316466A1B8BF13500C3A122 /* ExibitionViewController.m */; };
+		3316C8071BB8C72F00CBAB81 /* 联系商家2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3316C8051BB8C72F00CBAB81 /* 联系商家2.png */; };
+		3316C8081BB8C72F00CBAB81 /* 联系商家2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3316C8061BB8C72F00CBAB81 /* 联系商家2@2x.png */; };
 		335217E51B8ED8FD00E06C4A /* ExbitionMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335217E41B8ED8FD00E06C4A /* ExbitionMainViewController.m */; };
 		335217E91B8F4BF600E06C4A /* ShopPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335217E71B8F4BF600E06C4A /* ShopPasswordViewController.m */; };
 		335217EA1B8F4BF600E06C4A /* ShopPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335217E81B8F4BF600E06C4A /* ShopPasswordViewController.xib */; };
+		3380B0501BBA86850069A971 /* UniPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3380B04F1BBA86850069A971 /* UniPay.m */; };
+		3380B0531BBA8FCB0069A971 /* libUPPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3380B0521BBA8FCB0069A971 /* libUPPayPlugin.a */; };
 		3388A9101B89A9C200ACD153 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388A90E1B89A9C200ACD153 /* FinancingInfoViewController.m */; };
 		3388A9111B89A9C200ACD153 /* FinancingInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3388A90F1B89A9C200ACD153 /* FinancingInfoViewController.xib */; };
 		3388A9151B8A19FB00ACD153 /* FinancingProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388A9131B8A19FB00ACD153 /* FinancingProductDetailViewController.m */; };
@@ -1666,6 +1671,10 @@
 		330E60781B8081FE002A859F /* BaseMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMenuItem.m; sourceTree = "<group>"; };
 		330FB1131B88A5F900E66C48 /* GoodsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsCollectionViewCell.h; sourceTree = "<group>"; };
 		330FB1141B88A5F900E66C48 /* GoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		331292BC1BB54D92008E788E /* UPPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPayPlugin.h; sourceTree = "<group>"; };
+		331292BD1BB54D92008E788E /* UPPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPayPluginDelegate.h; sourceTree = "<group>"; };
+		331292C01BB54D92008E788E /* libUPPayPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUPPayPlugin.a; sourceTree = "<group>"; };
+		331292C41BB54DED008E788E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3313067D1B8D7CE50083F153 /* GoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodDetailViewController.h; sourceTree = "<group>"; };
 		3313067E1B8D7CE50083F153 /* GoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodDetailViewController.m; sourceTree = "<group>"; };
 		3313067F1B8D7CE50083F153 /* GoodDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodDetailViewController.xib; sourceTree = "<group>"; };
@@ -1674,7 +1683,7 @@
 		331306851B8D7D100083F153 /* ShoppingCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCityViewController.h; sourceTree = "<group>"; };
 		331306861B8D7D100083F153 /* ShoppingCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCityViewController.m; sourceTree = "<group>"; };
 		331306881B8D7DDC0083F153 /* AddCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCartViewController.h; sourceTree = "<group>"; };
-		331306891B8D7DDC0083F153 /* AddCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCartViewController.m; sourceTree = "<group>"; };
+		331306891B8D7DDC0083F153 /* AddCartViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddCartViewController.mm; sourceTree = "<group>"; };
 		3313068A1B8D7DDC0083F153 /* AddCartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCartViewController.xib; sourceTree = "<group>"; };
 		3313068B1B8D7DDC0083F153 /* ShopCategroyListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCategroyListController.h; sourceTree = "<group>"; };
 		3313068C1B8D7DDC0083F153 /* ShopCategroyListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCategroyListController.m; sourceTree = "<group>"; };
@@ -1762,6 +1771,8 @@
 		331646731B8BF85100C3A122 /* weiyuan */ = {isa = PBXFileReference; lastKnownFileType = folder; name = weiyuan; path = "../../../../Datas/360云盘/AppDocuments/劉昊的項目/承芯项目/源码/ios源码/weiyuan"; sourceTree = "<group>"; };
 		3316601F1B97421F00F622FC /* Bill.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = Bill.java; path = "../安卓源码/src/com/chengxin/Entity/Bill.java"; sourceTree = "<group>"; };
 		331660201B9748C100F622FC /* Demand.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = Demand.java; path = "../安卓源码/src/com/chengxin/Entity/Demand.java"; sourceTree = "<group>"; };
+		3316C8051BB8C72F00CBAB81 /* 联系商家2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系商家2.png"; sourceTree = "<group>"; };
+		3316C8061BB8C72F00CBAB81 /* 联系商家2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系商家2@2x.png"; sourceTree = "<group>"; };
 		331B49C61B959CC500214178 /* activity */ = {isa = PBXFileReference; lastKnownFileType = folder; name = activity; path = "../安卓源码/activity"; sourceTree = "<group>"; };
 		331B49C71B959CC500214178 /* adapter */ = {isa = PBXFileReference; lastKnownFileType = folder; name = adapter; path = "../安卓源码/adapter"; sourceTree = "<group>"; };
 		331B49C81B959CC500214178 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../安卓源码/assets"; sourceTree = "<group>"; };
@@ -1772,6 +1783,9 @@
 		335217E61B8F4BF600E06C4A /* ShopPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopPasswordViewController.h; sourceTree = "<group>"; };
 		335217E71B8F4BF600E06C4A /* ShopPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopPasswordViewController.m; sourceTree = "<group>"; };
 		335217E81B8F4BF600E06C4A /* ShopPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopPasswordViewController.xib; sourceTree = "<group>"; };
+		3380B04E1BBA86850069A971 /* UniPay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniPay.h; sourceTree = "<group>"; };
+		3380B04F1BBA86850069A971 /* UniPay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniPay.m; sourceTree = "<group>"; };
+		3380B0521BBA8FCB0069A971 /* libUPPayPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUPPayPlugin.a; sourceTree = "<group>"; };
 		3388A90D1B89A9C200ACD153 /* FinancingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancingInfoViewController.h; sourceTree = "<group>"; };
 		3388A90E1B89A9C200ACD153 /* FinancingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancingInfoViewController.m; sourceTree = "<group>"; };
 		3388A90F1B89A9C200ACD153 /* FinancingInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinancingInfoViewController.xib; sourceTree = "<group>"; };
@@ -2325,10 +2339,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331292C51BB54DED008E788E /* QuartzCore.framework in Frameworks */,
 				0BF824CD1B3307AC00B36317 /* libicucore.dylib in Frameworks */,
 				0BF824CB1B33078600B36317 /* SystemConfiguration.framework in Frameworks */,
 				0BF824C91B33077500B36317 /* MobileCoreServices.framework in Frameworks */,
 				0BF824C71B33075900B36317 /* CoreTelephony.framework in Frameworks */,
+				331292C21BB54D92008E788E /* libUPPayPlugin.a in Frameworks */,
 				0BF824C51B33074300B36317 /* Security.framework in Frameworks */,
 				0BF824C31B33073000B36317 /* Accounts.framework in Frameworks */,
 				0BF824C11B33071E00B36317 /* Social.framework in Frameworks */,
@@ -2337,15 +2353,15 @@
 				302745B91A5A6CF800282582 /* libc++.1.dylib in Frameworks */,
 				302745B71A5A6CF800282582 /* UIKit.framework in Frameworks */,
 				302745B21A5A6CF800282582 /* libiconv.2.4.0.dylib in Frameworks */,
-				3027415B1A5A6C2C00282582 /* zbarSDK.a in Frameworks */,
 				302741581A5A6C2C00282582 /* libidn.a in Frameworks */,
 				302745B41A5A6CF800282582 /* libresolv.9.dylib in Frameworks */,
+				3380B0531BBA8FCB0069A971 /* libUPPayPlugin.a in Frameworks */,
 				302745B31A5A6CF800282582 /* CoreGraphics.framework in Frameworks */,
-				3027415A1A5A6C2C00282582 /* libzbar.a in Frameworks */,
 				302745B51A5A6CF800282582 /* libxml2.2.dylib in Frameworks */,
 				302740F41A5A6C2C00282582 /* libbaidumapapi.a in Frameworks */,
 				302745B81A5A6CF800282582 /* libsqlite3.0.dylib in Frameworks */,
 				302740F51A5A6C2C00282582 /* libbaidumapapi.a in Frameworks */,
+				33151F2E1BBADB910087FAF1 /* zbarSDK.a in Frameworks */,
 				302745B61A5A6CF800282582 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2414,6 +2430,7 @@
 		30273F351A5A6BAC00282582 = {
 			isa = PBXGroup;
 			children = (
+				331292BA1BB54D19008E788E /* UPPaySDK */,
 				331660201B9748C100F622FC /* Demand.java */,
 				3316601F1B97421F00F622FC /* Bill.java */,
 				331394451B9137CE002446CA /* 安卓源码 */,
@@ -3833,6 +3850,8 @@
 		302745BA1A5A6CFB00282582 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				3380B0511BBA8FCB0069A971 /* libs */,
+				331292C41BB54DED008E788E /* QuartzCore.framework */,
 				0BF824CC1B3307AC00B36317 /* libicucore.dylib */,
 				0BF824CA1B33078600B36317 /* SystemConfiguration.framework */,
 				0BF824C81B33077500B36317 /* MobileCoreServices.framework */,
@@ -3904,6 +3923,32 @@
 			path = "财经和展会 图标";
 			sourceTree = "<group>";
 		};
+		331292BA1BB54D19008E788E /* UPPaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				331292BB1BB54D92008E788E /* inc */,
+				331292BF1BB54D92008E788E /* libs */,
+			);
+			path = UPPaySDK;
+			sourceTree = "<group>";
+		};
+		331292BB1BB54D92008E788E /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				331292BC1BB54D92008E788E /* UPPayPlugin.h */,
+				331292BD1BB54D92008E788E /* UPPayPluginDelegate.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		331292BF1BB54D92008E788E /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				331292C01BB54D92008E788E /* libUPPayPlugin.a */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
 		3313067C1B8D72BD0083F153 /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
@@ -3915,7 +3960,7 @@
 				331306981B8D7EA40083F153 /* ShopViewController.h */,
 				331306991B8D7EA40083F153 /* ShopViewController.m */,
 				331306881B8D7DDC0083F153 /* AddCartViewController.h */,
-				331306891B8D7DDC0083F153 /* AddCartViewController.m */,
+				331306891B8D7DDC0083F153 /* AddCartViewController.mm */,
 				3313068A1B8D7DDC0083F153 /* AddCartViewController.xib */,
 				3313068B1B8D7DDC0083F153 /* ShopCategroyListController.h */,
 				3313068C1B8D7DDC0083F153 /* ShopCategroyListController.m */,
@@ -4076,6 +4121,15 @@
 			path = ExbitionManager;
 			sourceTree = "<group>";
 		};
+		3380B0511BBA8FCB0069A971 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				3380B0521BBA8FCB0069A971 /* libUPPayPlugin.a */,
+			);
+			name = libs;
+			path = UPPaySDK/libs;
+			sourceTree = "<group>";
+		};
 		3399ACF31B89511D00340100 /* Financing */ = {
 			isa = PBXGroup;
 			children = (
@@ -4132,6 +4186,8 @@
 				3399AD0C1B89567800340100 /* ShoppingCart.m */,
 				3399AD0D1B89567800340100 /* ShopService.h */,
 				3399AD0E1B89567800340100 /* ShopService.m */,
+				3380B04E1BBA86850069A971 /* UniPay.h */,
+				3380B04F1BBA86850069A971 /* UniPay.m */,
 			);
 			path = Shopping;
 			sourceTree = "<group>";
@@ -4334,6 +4390,8 @@
 		33E2EF0F1B82F296005B5ABF /* Btn */ = {
 			isa = PBXGroup;
 			children = (
+				3316C8051BB8C72F00CBAB81 /* 联系商家2.png */,
+				3316C8061BB8C72F00CBAB81 /* 联系商家2@2x.png */,
 				331307881B8DF0DA0083F153 /*  公众号 .png */,
 				331307891B8DF0DA0083F153 /*  公众号 @2x.png */,
 				3313078A1B8DF0DA0083F153 /* 扫码.png */,
@@ -5382,6 +5440,7 @@
 				33E2F11C1B82F297005B5ABF /* 群聊.png in Resources */,
 				33E2F2481B82F297005B5ABF /* 意见反馈@2x.png in Resources */,
 				33E2F1491B82F297005B5ABF /* people_n@2x.png in Resources */,
+				3316C8071BB8C72F00CBAB81 /* 联系商家2.png in Resources */,
 				33E2F2681B82F298005B5ABF /* location_msg@2x.png.r8761 in Resources */,
 				33E2F0FA1B82F296005B5ABF /* 扫一扫.png in Resources */,
 				33E2F1E91B82F297005B5ABF /* 默认背景@2x.png in Resources */,
@@ -5497,6 +5556,7 @@
 				33E2F2921B82F298005B5ABF /* talk_sound_p3.png in Resources */,
 				33E2F26A1B82F298005B5ABF /* SessionBarIcon0@2x.png in Resources */,
 				33E2F2281B82F297005B5ABF /* 图标---调整字体按下.png in Resources */,
+				3316C8081BB8C72F00CBAB81 /* 联系商家2@2x.png in Resources */,
 				33E2F10E1B82F297005B5ABF /* WhitePoint.png in Resources */,
 				33E2F1FF1B82F297005B5ABF /* menu_shop_select.png in Resources */,
 				33E2F0A51B82F296005B5ABF /* actionbar_more_icon.png in Resources */,
@@ -5595,6 +5655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				302743FA1A5A6C9500282582 /* ShareViewController.m in Sources */,
+				3380B0501BBA86850069A971 /* UniPay.m in Sources */,
 				302741341A5A6C2C00282582 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				302741491A5A6C2C00282582 /* XMPPSRVResolver.m in Sources */,
 				3027411E1A5A6C2C00282582 /* SDWebImageDecoder.m in Sources */,
@@ -5900,7 +5961,7 @@
 				3313073C1B8D82FE0083F153 /* OrderManagerViewController.m in Sources */,
 				3399AD151B89567800340100 /* ShoppingCart.m in Sources */,
 				302740F81A5A6C2C00282582 /* Statement.m in Sources */,
-				331306921B8D7DDC0083F153 /* AddCartViewController.m in Sources */,
+				331306921B8D7DDC0083F153 /* AddCartViewController.mm in Sources */,
 				302740FB1A5A6C2C00282582 /* GTMBase64Coder.m in Sources */,
 				3027411C1A5A6C2C00282582 /* SDImageCache.m in Sources */,
 			);
@@ -6023,7 +6084,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/weiyuan/AVOSCloud/iOS/release-v3.0.2",
 					"$(PROJECT_DIR)/weiyuan",
 				);
 				INFOPLIST_FILE = weiyuan/Info.plist;
@@ -6036,9 +6096,12 @@
 					"$(PROJECT_DIR)/Thirdparts/libLame",
 					"$(PROJECT_DIR)/Thirdparts/XMPP/Vendor/libidn",
 					"$(PROJECT_DIR)/Thirdparts/ZBarSDK",
+					"$(PROJECT_DIR)/UPPaySDK/libs",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = chengxin;
-				PROVISIONING_PROFILE = "054d131c-c465-453d-aed8-408f53784b76";
+				PROVISIONING_PROFILE = "1db67f1d-b91d-4630-a881-a2479df68f1a";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -6049,7 +6112,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/weiyuan/AVOSCloud/iOS/release-v3.0.2",
 					"$(PROJECT_DIR)/weiyuan",
 				);
 				INFOPLIST_FILE = weiyuan/Info.plist;
@@ -6062,9 +6124,12 @@
 					"$(PROJECT_DIR)/Thirdparts/libLame",
 					"$(PROJECT_DIR)/Thirdparts/XMPP/Vendor/libidn",
 					"$(PROJECT_DIR)/Thirdparts/ZBarSDK",
+					"$(PROJECT_DIR)/UPPaySDK/libs",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = chengxin;
-				PROVISIONING_PROFILE = "054d131c-c465-453d-aed8-408f53784b76";
+				PROVISIONING_PROFILE = "1db67f1d-b91d-4630-a881-a2479df68f1a";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

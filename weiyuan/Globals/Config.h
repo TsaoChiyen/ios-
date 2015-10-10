@@ -61,7 +61,9 @@ return _sharedObject; \
 #define KBSSDKAPIDomain             @"http://119.84.73.193/index.php/"
 #define KBSSDKAPIDomainXMPP         @"119.84.73.193"
 #define KBSSDKAPIDomainXMPPPort     5222
-#define KBSSDKAPIDomainXMPPServer   @"localhost.localdomain" // ???
+#define KBSSDKAPIDomainXMPPServer   @"shop"
+
+//@"localhost.localdomain" // ???
 
 //  调试环境地址
 //#define KBSSDKAPIURL                @"http://121.40.214.35:8000/"

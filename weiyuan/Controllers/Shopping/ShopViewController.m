@@ -22,6 +22,7 @@
 #import "ShoppingCartViewController.h"
 #import "ShoppingCart.h"
 #import "JSBadgeView.h"
+#import "LocationManager.h"
 
 //#define TestArray @[@"全部", @"女装", @"男装", @"鞋包", @"母婴", @"化妆", @"数码", @"休闲", @"更多"]
 @interface ShopViewController ()<ImageTouchViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout> {
@@ -68,7 +69,6 @@
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [self.view addSubview:collectionView];
-    
     
     allshowBlackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, App_Frame_Width, APP_Frame_Height)];
     allshowBlackView.backgroundColor = RGBACOLOR(51, 51, 51, 0.8);
@@ -144,9 +144,17 @@
         [super startRequest];
         isloadByslime = YES;
         
-        [client getShopListWithPage:currentPage
-                      andCategoryid:nil
-                          andCity:nil];
+        Location currentLocation;
+        
+        if ([[LocationManager sharedManager] located]) {
+            currentLocation = [[LocationManager sharedManager] coordinate];
+        }
+
+        [client getShopListWithPage:1
+                         categoryid:nil
+                                lat:@(currentLocation.lat).stringValue
+                                lng:@(currentLocation.lng).stringValue
+                               city:city];
     }
 }
 
@@ -169,9 +177,17 @@
 }
 
 - (void)prepareLoadMoreWithPage:(int)page sinceID:(int)sinceID {
+    Location currentLocation;
+    
+    if ([[LocationManager sharedManager] located]) {
+        currentLocation = [[LocationManager sharedManager] coordinate];
+    }
+
     [client getShopListWithPage:page
-                  andCategoryid:categoryid
-                      andCity:city];
+                     categoryid:nil
+                            lat:@(currentLocation.lat).stringValue
+                            lng:@(currentLocation.lng).stringValue
+                           city:city];
 }
 
 - (void)requestCategroyDidFinish:(id)sender obj:(NSDictionary *)obj {
@@ -242,9 +258,18 @@
     }
     
     client = [[BSClient alloc] initWithDelegate:self action:@selector(requestDidFinish:obj:)];
+    
+    Location currentLocation;
+    
+    if ([[LocationManager sharedManager] located]) {
+        currentLocation = [[LocationManager sharedManager] coordinate];
+    }
+
     [client getShopListWithPage:currentPage
-                  andCategoryid:categoryid
-                      andCity:city];
+                     categoryid:nil
+                            lat:@(currentLocation.lat).stringValue
+                            lng:@(currentLocation.lng).stringValue
+                           city:city];
 }
 
 - (void)imageTouchViewDidSelected:(id)sender {
@@ -338,9 +363,17 @@
         [super startRequest];
         isloadByslime = YES;
 
+        Location currentLocation;
+        
+        if ([[LocationManager sharedManager] located]) {
+            currentLocation = [[LocationManager sharedManager] coordinate];
+        }
+
         [client getShopListWithPage:currentPage
-                      andCategoryid:categoryid
-                          andCity:city];
+                         categoryid:nil
+                                lat:@(currentLocation.lat).stringValue
+                                lng:@(currentLocation.lng).stringValue
+                               city:city];
         
         [self touchesBegan:nil withEvent:nil];
     }

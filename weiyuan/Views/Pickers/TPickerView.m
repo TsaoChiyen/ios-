@@ -37,6 +37,7 @@
 - (void)loadData {
     //加载数据
     self.selected = [arrData objectAtIndex:0];
+    self.selectedID = 0;
 }
 - (void)dealloc
 {
@@ -101,11 +102,12 @@
 - (void)pickerView:(UIPickerView *)sender didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     switch (component) {
         case 0:
-            self.selected = [arrData objectAtIndex:row];
-            break;
-
+        self.selected = [arrData objectAtIndex:row];
+        self.selectedID = row;
+        break;
+        
         default:
-            break;
+        break;
     }
 }
 

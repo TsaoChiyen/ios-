@@ -585,26 +585,38 @@
  *
  */
 - (void)sendMessageWithObject:(Message*)msg {
-    [self sendMessageToid:msg.toId toname:msg.toname tourl:msg.tohead file:msg.value typefile:msg.typefile typechat:[NSString stringWithFormat:@"%d", msg.typechat] voicetime:msg.voiceTime lat:[NSString stringWithFormat:@"%f", msg.address.lat] lng:[NSString stringWithFormat:@"%f", msg.address.lng] address:msg.address.address content:msg.content tag:msg.tag time:msg.sendTime];
+    [self sendMessageToid:msg.toId
+                   toname:msg.toname
+                    tourl:msg.tohead
+                     file:msg.value
+                 typefile:msg.typefile
+                 typechat:[NSString stringWithFormat:@"%d", msg.typechat]
+                voicetime:msg.voiceTime
+                      lat:[NSString stringWithFormat:@"%f", msg.address.lat]
+                      lng:[NSString stringWithFormat:@"%f", msg.address.lng]
+                  address:msg.address.address
+                  content:msg.content
+                      tag:msg.tag
+                     time:msg.sendTime];
 }
 /**
  *	Copyright © 2014 sam Inc. All rights reserved.
  *
  *	发送消息
  *
- *	@param fromid false 发送者id
- *	@param fromname true 发送者name
- *	@param fromurl true 发送者头像
- *	@param toid true 接收者，可以是某人，也可以是某个群id
- *	@param toname true 接收者name
- *	@param file false 上传图片/声音
- *	@param voicetime false 声音时间长度
- *	@param address false 地址
- *	@param content false 消息的文字内容
- *	@param typechat false 100-单聊 200-群聊 300-临时会话 默认为100
- *	@param typefile false 1-文字 2-图片 3-声音 4-位置 默认为1
- *	@param tag true 标识符
- *	@param time true 发送消息的时间,毫秒（服务器生成）
+ *	@param fromid       false   发送者id
+ *	@param fromname     true    发送者name
+ *	@param fromurl      true    发送者头像
+ *	@param toid         true    接收者，可以是某人，也可以是某个群id
+ *	@param toname       true    接收者name
+ *	@param file         false   上传图片/声音
+ *	@param voicetime    false   声音时间长度
+ *	@param address      false   地址
+ *	@param content      false   消息的文字内容
+ *	@param typechat     false   100-单聊 200-群聊 300-临时会话 默认为100
+ *	@param typefile     false   1-文字 2-图片 3-声音 4-位置 默认为1
+ *	@param tag          true    标识符
+ *	@param time         true    发送消息的时间,毫秒（服务器生成）
  *
  */
 - (void)sendMessageToid:(NSString*)toid
@@ -1682,6 +1694,7 @@
             content:(NSString *)content
 {
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
+
     [params setObject:type forKey:@"type"];
     [params setObject:goods forKey:@"goods"];
     [params setObject:shopid forKey:@"shopid"];
@@ -1770,8 +1783,10 @@
  *  @param areaId       商品区域id
  */
 - (void)getShopListWithPage:(NSInteger)page
-              andCategoryid:(NSString *)categoryid
-                    andCity:(NSString *)city
+                 categoryid:(NSString *)categoryid
+                        lat:(NSString *)lat
+                        lng:(NSString *)lng
+                       city:(NSString *)city
 {
 //    if (!categoryid && !areaId) {
 //        return;
@@ -1783,6 +1798,17 @@
     if (page > 1) {
         [params setObject:@(page).stringValue forKey:@"page"];
     }
+
+    if (lat)
+        [params setObject:lat forKey:@"lat"];
+    else
+        [params setObject:@"0.0001" forKey:@"lat"];
+
+    if (lng)
+        [params setObject:lng forKey:@"lng"];
+    else
+        [params setObject:@"0.0001" forKey:@"lng"];
+    
 
     if (categoryid) [params setObject:categoryid    forKey:@"categoryid"];
     if (city)       [params setObject:city          forKey:@"city"];
@@ -2574,9 +2600,33 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     [params setObject:orderId forKey:@"id"];
+    [params setObject:@"1" forKey:@"type"];
     [params setObject:@"2" forKey:@"status"];
     [params setObject:logistics forKey:@"logcompany"];
     [params setObject:waybill forKey:@"lognumber"];
+    
+    [self loadRequestWithDoMain:YES
+                     methodName:@"shop/Api/orderStatus"
+                         params:params
+                   postDataType:KSTRequestPostDataTypeNormal];
+}
+
+/**
+ *	@Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *
+ *	订单收货处理
+ *
+ *  @param id           订单 ID
+ *  @note status        10:已收货
+ *
+ */
+-(void)recieveGoodsByOrderId:(NSString *)orderId
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    [params setObject:orderId forKey:@"id"];
+    [params setObject:@"2" forKey:@"type"];
+    [params setObject:@"6" forKey:@"status"];
     
     [self loadRequestWithDoMain:YES
                      methodName:@"shop/Api/orderStatus"
@@ -3055,12 +3105,17 @@
  *  @param  lng:    GPS定位坐标:经度
  *
  */
--(void)listGoodsOfFinacialShopOptionCityId:(NSString *)city
-                                       lat:(NSString *)lat
-                                       lng:(NSString *)lng
+-(void)listGoodsOfFinacialShopWithPage:(int)page
+                                cityId:(NSString *)city
+                                   lat:(NSString *)lat
+                                   lng:(NSString *)lng
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
+    if (page > 1) {
+        [params setObject:@(page).stringValue forKey:@"page"];
+    }
+
     if (city) {
         [params setObject:city  forKey:@"city"];
     }

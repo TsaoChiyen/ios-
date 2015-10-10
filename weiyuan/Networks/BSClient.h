@@ -889,8 +889,10 @@
  *  @param city         商品区域
  */
 - (void)getShopListWithPage:(NSInteger)page
-              andCategoryid:(NSString *)categoryid
-                    andCity:(NSString *)city;
+                 categoryid:(NSString *)categoryid
+                        lat:(NSString *)lat
+                        lng:(NSString *)lng
+                       city:(NSString *)city;
 
 /**
  *	Copyright © 2015 tcy@dreamisland. All rights reserved.
@@ -1228,6 +1230,17 @@
        withLogistics:(NSString *)logistics
           adnWaybill:(NSString *)waybill;
 
+/**
+ *	@Copyright © 2015 tcy@dreamisland. All rights reserved.
+ *
+ *	订单收货处理
+ *
+ *  @param id           订单 ID
+ *  @note status        10:已收货
+ *
+ */
+-(void)recieveGoodsByOrderId:(NSString *)orderId;
+
 #pragma mark - Seller Relative
 
 /**
@@ -1457,9 +1470,10 @@
  *  @param  lng:    GPS定位坐标:经度
  *
  */
--(void)listGoodsOfFinacialShopOptionCityId:(NSString *)city
-                                       lat:(NSString *)lat
-                                       lng:(NSString *)lng;
+-(void)listGoodsOfFinacialShopWithPage:(int)page
+                                cityId:(NSString *)city
+                                   lat:(NSString *)lat
+                                   lng:(NSString *)lng;
 
 
 /**

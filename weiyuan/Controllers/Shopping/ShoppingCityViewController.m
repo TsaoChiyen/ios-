@@ -24,6 +24,7 @@
 #import "JSBadgeView.h"
 #import "ShoppingCart.h"
 #import "ShoppingCartViewController.h"
+#import "LocationManager.h"
 
 @interface ShoppingCityViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -202,7 +203,7 @@
     tableMenuView = [self getTableMenuView];
     [view addSubview:tableMenuView];
     
-    NSArray * arrSegmented = @[@"承芯商品",@"承芯商店"];
+    NSArray * arrSegmented = @[@"商品",@"商家"];
     
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:arrSegmented];
 
@@ -439,9 +440,17 @@
                                   sort:@(currentSort).stringValue
                                   page:1];
     } else {
+        Location currentLocation;
+        
+        if ([[LocationManager sharedManager] located]) {
+            currentLocation = [[LocationManager sharedManager] coordinate];
+        }
+        
         [client getShopListWithPage:1
-                      andCategoryid:nil
-                            andCity:currentShopCity];
+                         categoryid:nil
+                                lat:@(currentLocation.lat).stringValue
+                                lng:@(currentLocation.lng).stringValue
+                               city:currentShopCity];
     }
 }
 

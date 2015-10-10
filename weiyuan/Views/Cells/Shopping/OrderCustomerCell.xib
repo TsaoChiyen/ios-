@@ -29,7 +29,7 @@
                                     <outlet property="delegate" destination="-1" id="wJb-sV-Nnc"/>
                                 </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="评价.png" translatesAutoresizingMaskIntoConstraints="NO" id="g7F-17-9ym" customClass="ImageTouchView">
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="联系商家2.png" translatesAutoresizingMaskIntoConstraints="NO" id="g7F-17-9ym" customClass="ImageTouchView">
                                 <rect key="frame" x="52" y="6" width="32" height="32"/>
                                 <connections>
                                     <outlet property="delegate" destination="-1" id="Fl2-Uy-G04"/>
@@ -73,6 +73,6 @@
     <resources>
         <image name="btn_clear.png" width="30" height="30"/>
         <image name="联系商家.png" width="18" height="18"/>
-        <image name="评价.png" width="18" height="18"/>
+        <image name="联系商家2.png" width="18" height="18"/>
     </resources>
 </document>

@@ -474,7 +474,7 @@
         str = [NSString stringWithFormat:@"%d", str.intValue + 1];
     }
     [[[BSEngine currentEngine] user] saveConfigWhithKey:@"newNotifyCount" value:str];
-    [self setBadgeValueforPage:3 withContent:@"-1"];
+//    [self setBadgeValueforPage:3 withContent:@"-1"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"updateSectionZero" object:nil];
 }
 
@@ -530,12 +530,12 @@
 /**重置新消息数量*/
 - (void)reSetNewFriendAdd {
     [[[BSEngine currentEngine] user] saveConfigWhithKey:@"newNotifyCount" value:@"0"];
-    [self setBadgeValueforPage:3 withContent:nil];
+//    [self setBadgeValueforPage:3 withContent:nil];
 }
 
 /**收到好友申请后，点亮相应的小红点*/
 - (void)hasNewFriendAdd {
-    [self setBadgeValueforPage:3 withContent:@"-1"];
+//    [self setBadgeValueforPage:3 withContent:@"-1"];
 }
 
 #pragma mark cleanMessageWithSession
@@ -744,7 +744,7 @@
             // 通知更新数据库和界面显示
             [[[BSEngine currentEngine] user] saveConfigWhithKey:@"newNotifyCount" value:@"1"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshList" object:nil];
-            [self setBadgeValueforPage:3 withContent:@"-1"];
+//            [self setBadgeValueforPage:3 withContent:@"-1"];
         }
     }
     

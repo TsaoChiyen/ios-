@@ -46,18 +46,18 @@
     IBOutlet UIView   * viewtip;
     IBOutlet UIView   * labeltip;
     
-    IBOutlet UIView     * view1inViewSection1;
-    IBOutlet UIButton   * buttonLookComment;
-    IBOutlet UILabel    * commentCountLabel;
-    
+//    IBOutlet UIView     * view1inViewSection1;
+//    IBOutlet UIButton   * buttonLookComment;
+//    IBOutlet UILabel    * commentCountLabel;
+//    
     IBOutlet UIButton   * buttonInfo;
     IBOutlet UIButton   * buttonCanshu;
     
-    IBOutlet UILabel    * commentName;
-    IBOutlet UILabel    * commentContent;
-    IBOutlet UILabel    * commentTime;
-    IBOutlet Star       * commentStar;
-    IBOutlet UIImageView    * commentHeaderView;
+//    IBOutlet UILabel    * commentName;
+//    IBOutlet UILabel    * commentContent;
+//    IBOutlet UILabel    * commentTime;
+//    IBOutlet Star       * commentStar;
+//    IBOutlet UIImageView    * commentHeaderView;
     Comment             * commentNew;
     JSBadgeView         * jSBadgeView;
 }
@@ -122,9 +122,9 @@
     }
     jSBadgeView.badgeText = @([ShoppingCart goodsCount]).stringValue;
     [buttonFav setTitle:_goods.isfavorite.boolValue?@" 取消收藏":@" 收藏" forState:UIControlStateNormal];
-    buttonLookComment.hidden =
-    view1inViewSection1.hidden = _goods.commentcount.intValue == 0;
-    commentCountLabel.text = [NSString stringWithFormat:@"(%@)", _goods.commentcount];
+//    buttonLookComment.hidden =
+//    view1inViewSection1.hidden = _goods.commentcount.intValue == 0;
+//    commentCountLabel.text = [NSString stringWithFormat:@"(%@)", _goods.commentcount];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -174,13 +174,13 @@
         [self.goods copyfrom:it];
         if (comment.count>0) {
             commentNew = [Comment objWithJsonDic:comment];
-            buttonLookComment.hidden =
-            view1inViewSection1.hidden = NO;
-            commentContent.text = commentNew.content;
-            commentName.text = commentNew.user.nickname;
-            commentStar.show_star = commentNew.star.integerValue;
-            commentTime.text = [Globals timeStringForListWith:commentNew.createtime.doubleValue];
-            [commentHeaderView sd_setImageWithUrlString:commentNew.user.headsmall placeholderImage:LOADIMAGE(@"默认头像")];
+//            buttonLookComment.hidden =
+//            view1inViewSection1.hidden = NO;
+//            commentContent.text = commentNew.content;
+//            commentName.text = commentNew.user.nickname;
+//            commentStar.show_star = commentNew.star.integerValue;
+//            commentTime.text = [Globals timeStringForListWith:commentNew.createtime.doubleValue];
+//            [commentHeaderView sd_setImageWithUrlString:commentNew.user.headsmall placeholderImage:LOADIMAGE(@"默认头像")];
         }
     }
     return YES;
@@ -258,14 +258,14 @@
     _goods.star = star;
     commentNew = newComment;
     
-    commentCountLabel.text = [NSString stringWithFormat:@"(%@)", _goods.commentcount];
-    buttonLookComment.hidden =
-    view1inViewSection1.hidden = NO;
-    commentContent.text = commentNew.content;
-    commentName.text = commentNew.user.nickname;
-    commentStar.show_star = commentNew.star.integerValue;
-    commentTime.text = [Globals timeStringForListWith:commentNew.createtime.doubleValue];
-    [commentHeaderView sd_setImageWithUrlString:commentNew.user.headsmall placeholderImage:LOADIMAGE(@"默认头像")];
+//    commentCountLabel.text = [NSString stringWithFormat:@"(%@)", _goods.commentcount];
+//    buttonLookComment.hidden =
+//    view1inViewSection1.hidden = NO;
+//    commentContent.text = commentNew.content;
+//    commentName.text = commentNew.user.nickname;
+//    commentStar.show_star = commentNew.star.integerValue;
+//    commentTime.text = [Globals timeStringForListWith:commentNew.createtime.doubleValue];
+//    [commentHeaderView sd_setImageWithUrlString:commentNew.user.headsmall placeholderImage:LOADIMAGE(@"默认头像")];
 }
 
 - (void)imageTouchViewDidSelected:(id)sender {

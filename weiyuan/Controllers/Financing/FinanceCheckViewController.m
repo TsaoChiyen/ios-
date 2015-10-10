@@ -203,12 +203,18 @@
         cell.textLabel.text = bill.bank;
     }
     
+    int date = bill.repayment.intValue;
+    date = date % 31;
+    if (date == 0) date = 31;
+
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"每月%d日提醒", date];
+    
     if (bill.type.integerValue == 1) {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"每月%@日提醒", bill.repayment];
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"每月%@日提醒", bill.repayment];
         cell.labOther.text =  [NSString stringWithFormat:@"￥%0.2f", bill.price.floatValue];
     } else {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ 到期", [Globals convertDateFromString:bill.repayment timeType:4]];
-        cell.labOther.text =  @"";
+//        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ 到期", [Globals convertDateFromString:bill.repayment timeType:4]];
+        cell.labOther.text =  @"信用卡还款";
     }
 
     return cell;

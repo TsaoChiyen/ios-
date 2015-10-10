@@ -19,18 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yf9-ei-xNS">
-                                <rect key="frame" x="8" y="5" width="287" height="21"/>
+                                <rect key="frame" x="8" y="5" width="149" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right.png" id="kxs-ef-X0Q">
-                                <rect key="frame" x="303" y="9" width="9" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="商品默认图片.png" id="HlP-eI-e5J" customClass="ImageTouchView">
-                                <rect key="frame" x="214" y="31" width="104" height="80"/>
+                                <rect key="frame" x="214.00000009055321" y="31" width="104" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="jL4-hD-8Aa"/>
@@ -71,6 +67,13 @@
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="jL0-tH-L92"/>
                                 </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sdc-WL-c0g">
+                                <rect key="frame" x="165" y="5" width="147" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -83,6 +86,7 @@
                 <outlet property="price0" destination="vHY-6I-7UT" id="xDz-b8-9p6"/>
                 <outlet property="price1" destination="rj9-dk-tDf" id="be2-IZ-QQa"/>
                 <outlet property="price2" destination="ZPy-de-6F0" id="0mm-pC-eFc"/>
+                <outlet property="shopDistance" destination="Sdc-WL-c0g" id="epu-do-Sux"/>
                 <outlet property="shopName" destination="yf9-ei-xNS" id="H2z-3a-CTS"/>
                 <outlet property="showView" destination="9uV-UT-pCI" id="jWN-4E-ScP"/>
             </connections>
@@ -90,7 +94,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow_right.png" width="9" height="13"/>
         <image name="商品默认图片.png" width="160" height="160"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

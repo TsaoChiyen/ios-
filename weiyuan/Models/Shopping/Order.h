@@ -8,7 +8,7 @@
 
 #import "NSBaseObject.h"
 
-@class Good, Shop;
+@class Good, Shop, UniPay;
 
 @interface Order : NSBaseObject
 
@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NSString  * selected;
 @property (nonatomic, strong) NSMutableArray *goods;
 @property (nonatomic, strong) Shop *shop;
+@property (nonatomic, strong) UniPay *uniPay;
 
 + (NSArray *)getStatusArray;
 

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet UILabel * price1;
 @property (nonatomic, strong) IBOutlet UILabel * price2;
 @property (nonatomic, strong) IBOutlet UILabel * shopName;
+@property (strong, nonatomic) IBOutlet UILabel * shopDistance;
 
 @property (nonatomic, strong) IBOutlet ImageTouchView * imgView0;
 @property (nonatomic, strong) IBOutlet ImageTouchView * imgView1;

@@ -136,14 +136,19 @@
     
     if (_bill) {
         _billType = _bill.type.integerValue;
+        int date = [_bill.repayment intValue];
+        date = date % 31;
+        
+        if (date == 0) date = 31;
+        
+        dateValue = [NSString stringWithFormat:@"%d", date];
         
         if (_billType == 2) {
-            dateValue = _bill.repayment;
-            txtLastDate.text = [Globals convertDateFromString:dateValue timeType:4];
+            txtLastDate.text = dateValue; //[Globals convertDateFromString:dateValue timeType:4];
             txtCard.text = _bill.card;
             txtBank.text = _bill.bank;
         } else if (_billType == 1) {
-            txtDateOfMonth.text = _bill.repayment;
+            txtDateOfMonth.text = dateValue;
             txtName.text = _bill.name;
             txtMechanism.text = _bill.mechanism;
             txtPrice.text = _bill.price;
@@ -188,8 +193,9 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)sender {
-    if (sender == txtDateOfMonth && _billType == 1) {
-            TPickerView *picker = [[TPickerView alloc] initWithTitle:@"选择还款日子" data:arrayDate delegate:self];
+    if ((sender == txtDateOfMonth && _billType == 1) ||
+        (sender == txtLastDate && _billType == 2)) {
+            TPickerView *picker = [[TPickerView alloc] initWithTitle:@"选择还款日" data:arrayDate delegate:self];
             picker.tag = 0;
             [picker showInView:self.view];
 
@@ -198,33 +204,33 @@
         }
         
         return NO;
-    } else if (sender == txtLastDate && _billType == 2) {
-            KPickerView * picker = [[KPickerView alloc] initWithType:forPickViewDate delegate:self];
-            [picker showInView:self.view];
-            picker.timeDoNotInvaild = NO;
-            UIDatePicker * tmpPicker = picker.picker;
-            
-            // 用日历来推算日期
-            unsigned units  = NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit;
-            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-            NSDateComponents *comps = [calendar components:units fromDate:[NSDate date]];
-            
-            [comps setYear:[comps year] - 2];           // 两年前
-            NSDate *minDate = [calendar dateFromComponents:comps];
-            
-            [comps setYear:[comps year] + 10];          // 两年前的十年后，即八年后
-            NSDate *maxDate = [calendar dateFromComponents:comps];
-            
-            tmpPicker.minimumDate = minDate;            // 最小日期
-            tmpPicker.maximumDate = maxDate;            // 最大日期
-            
-            calendar = nil;
-
-        if (currentInputView) {
-            [currentInputView resignFirstResponder];
-        }
-        
-        return NO;
+//    } else if (sender == txtLastDate && _billType == 2) {
+//            KPickerView * picker = [[KPickerView alloc] initWithType:forPickViewDate delegate:self];
+//            [picker showInView:self.view];
+//            picker.timeDoNotInvaild = NO;
+//            UIDatePicker * tmpPicker = picker.picker;
+//            
+//            // 用日历来推算日期
+//            unsigned units  = NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit;
+//            NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//            NSDateComponents *comps = [calendar components:units fromDate:[NSDate date]];
+//            
+//            [comps setYear:[comps year] - 2];           // 两年前
+//            NSDate *minDate = [calendar dateFromComponents:comps];
+//            
+//            [comps setYear:[comps year] + 10];          // 两年前的十年后，即八年后
+//            NSDate *maxDate = [calendar dateFromComponents:comps];
+//            
+//            tmpPicker.minimumDate = minDate;            // 最小日期
+//            tmpPicker.maximumDate = maxDate;            // 最大日期
+//            
+//            calendar = nil;
+//
+//        if (currentInputView) {
+//            [currentInputView resignFirstResponder];
+//        }
+//        
+//        return NO;
     } else if (sender == txtBank && _billType == 2) {
         TPickerView *picker = [[TPickerView alloc] initWithTitle:@"选择信用银行" data:arrayBank delegate:self];
         picker.tag = 1;
@@ -243,20 +249,24 @@
 
 #pragma mark - KPickerViewDelegate
 
-- (void)kPickerViewDidDismiss:(KPickerView*)sender {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy年M月d日"];
-    NSString * tmpTime = [dateFormatter stringFromDate:sender.selectedDate];
-    NSString * tmpTimeInterval = [NSString stringWithFormat:@"%0.0f", [sender.selectedDate timeIntervalSince1970]];
-    
-    txtLastDate.text = tmpTime;
-    dateValue = tmpTimeInterval;
-}
-
+//- (void)kPickerViewDidDismiss:(KPickerView*)sender {
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy年M月d日"];
+//    NSString * tmpTime = [dateFormatter stringFromDate:sender.selectedDate];
+//    NSString * tmpTimeInterval = [NSString stringWithFormat:@"%0.0f", [sender.selectedDate timeIntervalSince1970]];
+//    
+//    txtLastDate.text = tmpTime;
+//    dateValue = tmpTimeInterval;
+//}
+//
 - (void)actionSheet:(TPickerView *)sender clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         if (sender.tag == 0) {
-            txtDateOfMonth.text = sender.selected;
+            if (_billType == 2) {
+                txtLastDate.text = sender.selected;
+            }else {
+                txtDateOfMonth.text = sender.selected;
+            }
             dateValue = sender.selected;
         } else {
             txtBank.text = sender.selected;

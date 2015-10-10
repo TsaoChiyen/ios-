@@ -12,6 +12,7 @@
 @interface TPickerView : UIActionSheet
 
 @property (nonatomic, strong) NSString *selected;
+@property (nonatomic, assign) int selectedID;
 
 - (id)initWithTitle:(NSString *)title data:(NSArray *)data delegate:(id)delegate;
 - (void)showInView:(UIView *)view;

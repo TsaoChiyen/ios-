@@ -152,7 +152,12 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
         [self buttonInActionbar:view title:@"提醒发货" position:pos].tag = 2;
         pos.x += 148;
         [self buttonInActionbar:view title:@"修改收货地址" position:pos].tag = 1;
-    } else if ([[_data getStatusString] isEqualToString:@"待发货"]) {
+    } else if ([[_data getStatusString] isEqualToString:@"已发货"]) {
+        [self buttonInActionbar:view title:@"确认收货" position:pos].tag = 4;
+        pos.x += 148;
+        [self buttonInActionbar:view title:@"查看物流" position:pos].tag = 3;
+    } else /*if ([[_data getStatusString] isEqualToString:@"待发货"])*/ {
+        pos.x += 74;
         [self buttonInActionbar:view title:@"查看物流" position:pos].tag = 3;
     }
 
@@ -186,8 +191,16 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
         }
             break;
         case 2:     //  delivery
+            [self getUserByName:_data.shop.uid];
             break;
         case 3:     //  logistics
+            break;
+        case 4:     //  确认收货
+        {
+            BSClient *clientRecieve = [[BSClient alloc] initWithDelegate:self action:@selector(requestDidFinish:obj:)];
+            
+            [clientRecieve recieveGoodsByOrderId:_data.id];
+        }
             break;
         default:
             break;

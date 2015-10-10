@@ -25,6 +25,26 @@
 - (void)setShop:(Shop *)it {
     shop = it;
     self.shopName.text = it.name;
+    
+    float distance = it.distance.floatValue;
+    NSString *strDistance = nil;
+    
+    if (distance > 0) {
+        if (distance > 100000.0) {
+            distance /= 1000.0;
+            strDistance = [NSString stringWithFormat:@"距离 %d 公里", (int)distance];
+        } else if (distance > 1000.0) {
+            distance /= 1000.0;
+            strDistance = [NSString stringWithFormat:@"距离 %.2f 公里", distance];
+        } else {
+            strDistance = [NSString stringWithFormat:@"距离 %d 米", (int)distance];
+        }
+        [self.shopDistance setHidden:NO];
+    } else {
+        [self.shopDistance setHidden:YES];
+    }
+    
+    self.shopDistance.text = strDistance;
     self.price0.text = self.price1.text = self.price2.text = nil;
     self.imgView0.hidden = YES;
     self.imgView1.hidden = YES;

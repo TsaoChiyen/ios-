@@ -26,6 +26,8 @@
 {
     NSArray *arrMore;
     Location currentLoc;
+    NSString *currentCity;
+    BMKPoiInfo *bmkPoiInfo;
 }
 
 @end
@@ -45,6 +47,16 @@
     tableView.top = headerView.height;
     tableView.height = self.view.height - tableView.top;
     self.tableViewCellHeight = 60;
+
+    currentCity = nil;
+    bmkPoiInfo = nil;
+
+    if ([[LocationManager sharedManager] located]) {
+        currentLoc = [[LocationManager sharedManager] coordinate];
+        currentCity = [self getBriefOfCity:[[LocationManager sharedManager] locationCity]];
+        bmkPoiInfo = [[BMKPoiInfo alloc] init];
+        [bmkPoiInfo setPt:CLLocationCoordinate2DMake(currentLoc.lat, currentLoc.lng)];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,34 +68,26 @@
     [super viewWillAppear:animated];
     
     if (isFirstAppear) {
-        if ([[LocationManager sharedManager] located]) {
-            currentLoc = [[LocationManager sharedManager] coordinate];
-            BMKPoiInfo *bmkPoiInfo = [[BMKPoiInfo alloc] init];
-            [bmkPoiInfo setPt:CLLocationCoordinate2DMake(currentLoc.lat, currentLoc.lng)];
-            [self requestDataWithType:bmkPoiInfo];
-        } else {
-            [self requestDataWithType:nil];
-        }
+        [self requestData];
     }
 }
 
-- (void)requestDataWithType:(id)data {
+- (void)requestData {
     self.loading = YES;
     [super startRequest];
+ 
+    [contentArr removeAllObjects];
 
-    if ([data isKindOfClass:[NSString class]]) {
-        [client listGoodsOfFinacialShopOptionCityId:data
-                                                lat:nil
-                                                lng:nil];
-    } else if ([data isKindOfClass:[BMKPoiInfo class]]) {
-        BMKPoiInfo * bmkPoiInfo =(BMKPoiInfo *)data;
-        [client listGoodsOfFinacialShopOptionCityId:nil
-                                                lat:@(bmkPoiInfo.pt.latitude).stringValue
-                                                lng:@(bmkPoiInfo.pt.longitude).stringValue];
+    if (currentCity && bmkPoiInfo) {
+        [client listGoodsOfFinacialShopWithPage:1
+                                         cityId:currentCity
+                                            lat:@(bmkPoiInfo.pt.latitude).stringValue
+                                            lng:@(bmkPoiInfo.pt.longitude).stringValue];
     } else {
-        [client listGoodsOfFinacialShopOptionCityId:nil
-                                                lat:nil
-                                                lng:nil];
+        [client listGoodsOfFinacialShopWithPage:1
+                                         cityId:nil
+                                            lat:nil
+                                            lng:nil];
     }
 }
 
@@ -146,7 +150,7 @@
 }
 
 - (void)btnItemPressed:(UIButton*)sender {
-    int tag = sender.tag;
+    int tag = (int)sender.tag;
 
     if (tag < 0) {
         if (tag == -1) {
@@ -168,21 +172,27 @@
     }
 }
 
+- (void)prepareLoadMoreWithPage:(int)page sinceID:(int)sinceID {
+        [client listGoodsOfFinacialShopWithPage:page
+                                         cityId:currentCity
+                                            lat:@(bmkPoiInfo.pt.latitude).stringValue
+                                            lng:@(bmkPoiInfo.pt.longitude).stringValue];
+}
+
 #pragma mark - Callback For KLocatePickView
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 1) {
         KLocatePickView *locateView = (KLocatePickView *)actionSheet;
         KLocation *location = locateView.locate;
-        NSString *city = nil;
         
         if (location.city.hasValue) {
-            city = location.city;
+            currentCity = location.city;
         } else {
-            city = location.state;
+            currentCity = location.state;
         }
 
-        [self requestDataWithType:city];
+        [self requestData];
     }
 }
 
@@ -235,8 +245,6 @@
     if ([super requestDidFinish:sender obj:obj]) {
         NSArray *array = [obj getArrayForKey:@"data"];
         
-        [contentArr removeAllObjects];
-        
         if (array && array.count) {
             [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 FinancGoods *item = [FinancGoods objWithJsonDic:obj];
@@ -254,7 +262,31 @@
 - (void)mapViewControllerSetPoiInfo:(BMKPoiInfo *)selectBMKPoiInfo {
     currentLoc.lat = selectBMKPoiInfo.pt.latitude;
     currentLoc.lng = selectBMKPoiInfo.pt.longitude;
-    [self requestDataWithType:selectBMKPoiInfo];
+    currentCity = [NSString stringWithFormat:@"%@", selectBMKPoiInfo.city];
+    currentCity = [self getBriefOfCity:currentCity];
+    [self requestData];
+}
+
+- (NSString *)getBriefOfCity:(NSString *)city {
+    NSString *ret = city;
+    
+    NSRange range = [ret rangeOfString:@"市"];
+    int len = 1;
+    
+    if (range.length == 0) {
+        range = [ret rangeOfString:@"省"];
+    }
+
+    if (range.length == 0) {
+        range = [ret rangeOfString:@"特别行政区"];
+        len = 5;
+    }
+    
+    if (range.length > 0 && range.location == ret.length - len) {
+        ret = [ret stringByReplacingCharactersInRange:range withString:@""];
+    }
+    
+    return ret;
 }
 
 #pragma mark - UITableViewDelegate
