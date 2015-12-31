@@ -1,0 +1,42 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "445D4140B1111F4FCBF09B7967DE8DC47B161B0E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "f9e1e03c-1a15-443d-91a6-d2e7aecad9e0++9324" : {
+
+    },
+    "fd5bfe22-8c12-d544-bbea-153dbb4806fa++377" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "f9e1e03c-1a15-443d-91a6-d2e7aecad9e0++9324" : 0,
+    "445D4140B1111F4FCBF09B7967DE8DC47B161B0E" : 0,
+    "fd5bfe22-8c12-d544-bbea-153dbb4806fa++377" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "800662DD-1284-4E06-86CE-77DB6570864A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "f9e1e03c-1a15-443d-91a6-d2e7aecad9e0++9324" : "ios%E6%BA%90%E7%A0%81\/Thirdparts\/Masonry\/",
+    "445D4140B1111F4FCBF09B7967DE8DC47B161B0E" : "ios%E6%BA%90%E7%A0%81\/",
+    "fd5bfe22-8c12-d544-bbea-153dbb4806fa++377" : "..\/..\/..\/Datas\/360%E4%BA%91%E7%9B%98\/AppDocuments\/%E5%8A%89%E6%98%8A%E7%9A%84%E9%A0%85%E7%9B%AE\/%E6%89%BF%E8%8A%AF%E9%A1%B9%E7%9B%AE\/%E6%BA%90%E7%A0%81\/ios%E6%BA%90%E7%A0%81"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "chengxin",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "chengxin.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/TsaoChiyen\/ios-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "445D4140B1111F4FCBF09B7967DE8DC47B161B0E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/562812743%40qq.com@svn.sinaapp.com\/abcmedical",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "f9e1e03c-1a15-443d-91a6-d2e7aecad9e0++9324"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.5:4433\/svn\/xizuesoft",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "fd5bfe22-8c12-d544-bbea-153dbb4806fa++377"
+    }
+  ]
+}

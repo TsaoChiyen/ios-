@@ -13,5 +13,6 @@
 @interface OrderSubviewController : BaseTableViewController
 
 @property(nonatomic, strong) Order * data;
+@property (nonatomic, assign) int shopType;
 
 @end

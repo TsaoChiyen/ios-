@@ -11,7 +11,9 @@
 @class Good, Shop;
 
 @interface GoodDetailViewController : BaseViewController
+
 @property (nonatomic, strong) Good * goods;
 @property (nonatomic, strong) Shop * shop;
+@property (nonatomic, assign) int shopType;
 
 @end

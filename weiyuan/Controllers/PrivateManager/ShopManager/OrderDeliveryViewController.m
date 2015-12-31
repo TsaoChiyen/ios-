@@ -28,6 +28,8 @@
     // Do any additional setup after loading the view from its nib.
     [self setEdgesNone];
     
+    _shopType = 0;
+    
     [self setRightBarButton:@"确定" selector:@selector(comfirmDelivery:)];
     self.navigationItem.title = @"发货";
     
@@ -68,9 +70,10 @@
     
     [self popViewController];
         if ([super startRequest]) {
-            [client deliveryOrder:_order.id
-                    withLogistics:txtCompany.text
-                       adnWaybill:txtOrderCode.text];
+            [client deliveryOrderWithShopType:_shopType
+                                      orderId:_order.id
+                                withLogistics:txtCompany.text
+                                   adnWaybill:txtOrderCode.text];
         }
     return YES;
 }

@@ -13,5 +13,6 @@
 @interface OrderRetreatViewController : BaseViewController
 
 @property (nonatomic, strong) Order *order;
+@property (nonatomic, assign) int shopType;
 
 @end

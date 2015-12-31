@@ -34,7 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setEdgesNone];
-    
+    _shopType = 0;
     self.navigationItem.title = @"商品管理";
     
     [self setRightBarButtonImage:LOADIMAGE(@"actionbar_add_icon") highlightedImage:nil selector:@selector(addGoods:)];
@@ -51,7 +51,7 @@
         if (![ShopCategroy hasData]) {
             self.loading = YES;
             clientCategory = [[BSClient alloc] initWithDelegate:self action:@selector(requestCategoryDidFinish:obj:)];
-            [clientCategory getShopCategoryList];
+            [clientCategory getShopCategoryListWithShopType:_shopType];
         }
         
         [self requstData];

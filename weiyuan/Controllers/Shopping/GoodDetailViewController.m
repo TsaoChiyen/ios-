@@ -73,7 +73,9 @@
     [buttonCall borderStyle];
     [buttonShop borderStyle];
     self.navigationItem.title = @"商品详细";
-
+    
+    _shopType = 0;
+    
     nameLabel.text = _goods.name;
     placeLabel.text =  [NSString stringWithFormat:@"￥%@", _goods.price];
 
@@ -99,29 +101,31 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (isFirstAppear) {
-        webView0.frame = CGRectMake(0, 40, self.view.width, self.view.height - 40 - viewTool.height);
-        
-        labeltip.left = (self.view.width - labeltip.width)/2;
-        viewTool.top = self.view.height - viewTool.height;
-        
-        scrollView.height = self.view.height - viewtip.height;
-        scrollView.contentSize = CGSizeMake(0, viewtip.bottom + 1);
-        
-        bannerView = [[ImagePlayerView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, 200)];
-        [viewSection0 addSubview:bannerView];
-        bannerView.imagePlayerViewDelegate = self;
-        bannerView.alpha = 0;
-        [bannerView reloadData];
-        
-        activityIndicatorweb = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((App_Frame_Width - 32)/2, APP_Frame_Height/3, 32.0f, 32.0f)];
-        activityIndicator.left = (Main_Screen_Width - 32)/2;
-        activityIndicatorweb.color = kbColor;
-        [webView0 addSubview:activityIndicatorweb];
-        
-    }
-    jSBadgeView.badgeText = @([ShoppingCart goodsCount]).stringValue;
-    [buttonFav setTitle:_goods.isfavorite.boolValue?@" 取消收藏":@" 收藏" forState:UIControlStateNormal];
+
+//    if (isFirstAppear) {
+//        webView0.frame = CGRectMake(0, 40, self.view.width, self.view.height - 40 - viewTool.height);
+//        
+//        labeltip.left = (self.view.width - labeltip.width)/2;
+//        int top = self.view.height - viewTool.height;
+//        viewTool.top = top;
+//        
+//        scrollView.height = self.view.height - viewtip.height;
+//        scrollView.contentSize = CGSizeMake(0, viewtip.bottom + 1);
+//        
+//        bannerView = [[ImagePlayerView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, 200)];
+//        [viewSection0 addSubview:bannerView];
+//        bannerView.imagePlayerViewDelegate = self;
+//        bannerView.alpha = 0;
+//        [bannerView reloadData];
+//        
+//        activityIndicatorweb = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((App_Frame_Width - 32)/2, APP_Frame_Height/3, 32.0f, 32.0f)];
+//        activityIndicator.left = (Main_Screen_Width - 32)/2;
+//        activityIndicatorweb.color = kbColor;
+//        [webView0 addSubview:activityIndicatorweb];
+//        
+//    }
+//    jSBadgeView.badgeText = @([ShoppingCart goodsCount]).stringValue;
+//    [buttonFav setTitle:_goods.isfavorite.boolValue?@" 取消收藏":@" 收藏" forState:UIControlStateNormal];
 //    buttonLookComment.hidden =
 //    view1inViewSection1.hidden = _goods.commentcount.intValue == 0;
 //    commentCountLabel.text = [NSString stringWithFormat:@"(%@)", _goods.commentcount];
@@ -129,9 +133,36 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
     if (isFirstAppear) {
+        if (isFirstAppear) {
+            webView0.frame = CGRectMake(0, 40, self.view.width, self.view.height - 40 - viewTool.height);
+            
+            labeltip.left = (self.view.width - labeltip.width)/2;
+            int top = self.view.height - viewTool.height;
+            viewTool.top = top;
+            
+            scrollView.height = self.view.height - viewtip.height;
+            scrollView.contentSize = CGSizeMake(0, viewtip.bottom + 1);
+            
+            bannerView = [[ImagePlayerView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, 200)];
+            [viewSection0 addSubview:bannerView];
+            bannerView.imagePlayerViewDelegate = self;
+            bannerView.alpha = 0;
+            [bannerView reloadData];
+            
+            activityIndicatorweb = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((App_Frame_Width - 32)/2, APP_Frame_Height/3, 32.0f, 32.0f)];
+            activityIndicator.left = (Main_Screen_Width - 32)/2;
+            activityIndicatorweb.color = kbColor;
+            [webView0 addSubview:activityIndicatorweb];
+            
+        }
+        jSBadgeView.badgeText = @([ShoppingCart goodsCount]).stringValue;
+        [buttonFav setTitle:_goods.isfavorite.boolValue?@" 取消收藏":@" 收藏" forState:UIControlStateNormal];
+
         [super startRequest];
-        [client getShopDetail:_goods.id];
+        [client getShopDetailWithShopType:_shopType
+                                  goodsId:_goods.id];
         
         //        [client commentList:_goods.id];
         [UIView animateWithDuration:0.25 animations:^{

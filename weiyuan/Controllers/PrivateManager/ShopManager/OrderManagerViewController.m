@@ -43,6 +43,8 @@
     arrStatus = [Order getStatusArray];
 
     self.navigationItem.title = @"商品订单管理";
+    _shopType = 0;
+    
     headerView = self.headerBar;
     [self.view addSubview:headerView];
     footerView = self.footerBar;
@@ -63,7 +65,11 @@
 {
     self.loading = YES;
     [super startRequest];
-    [client getOrderListWithPage:1 andStatus:currentStatus andType:1];
+    [contentArr removeAllObjects];
+    [client getOrderListWithShopType:_shopType
+                                page:1
+                           andStatus:currentStatus
+                             andType:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -143,6 +149,13 @@
     }
 }
 
+- (void)prepareLoadMoreWithPage:(int)page sinceID:(int)sinceID {
+    [client getOrderListWithShopType:_shopType
+                                page:1
+                           andStatus:currentStatus
+                             andType:1];
+}
+
 #pragma mark - MenuViewDelegate
 
 - (void)popoverView:(MenuView *)sender didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -162,8 +175,6 @@
         NSArray* array = [obj objectForKey:@"data"];
         unhandle = 0;
         exception = 0;
-        
-        [contentArr removeAllObjects];
         
         if (array && array.count > 0) {
             [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -195,9 +206,9 @@
         }
         
         [btnStatus setTitle:arrStatus[currentStatus] forState:UIControlStateNormal];
-        lblCount.text = [NSString stringWithFormat:@"%@\n%d个订单", arrStatus[currentStatus], contentArr.count];
-        lblUnhandle.text = [NSString stringWithFormat:@"未处理\n%d个订单", unhandle];
-        lblException.text = [NSString stringWithFormat:@"异常\n%d个订单", exception];
+        lblCount.text = [NSString stringWithFormat:@"%@\n%ld个订单", arrStatus[currentStatus], contentArr.count];
+        lblUnhandle.text = [NSString stringWithFormat:@"未处理\n%ld个订单", unhandle];
+        lblException.text = [NSString stringWithFormat:@"异常\n%ld个订单", exception];
 
         [tableView reloadData];
     }

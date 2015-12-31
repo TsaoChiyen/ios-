@@ -14,4 +14,5 @@
 
 @interface ShopCategroyListController : BaseTableViewController
 @property (nonatomic, strong) id<ShopCategroyDelegate> delegate;
+@property (nonatomic, assign) int shopType;
 @end

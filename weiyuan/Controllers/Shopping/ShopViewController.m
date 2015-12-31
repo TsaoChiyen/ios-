@@ -60,6 +60,9 @@
     [self setEdgesNone];
     allshowArray = [[NSMutableArray alloc] init];
     showArray = [[NSMutableArray alloc] init];
+    
+    _shopType = 0;
+    
     //注册
     CHTCollectionViewWaterfallLayout *flowLayout=[[CHTCollectionViewWaterfallLayout alloc] init];
     collectionView = [[UICollectionView alloc] initWithFrame:tableView.bounds collectionViewLayout:flowLayout];
@@ -113,7 +116,7 @@
     if (isFirstAppear) {
         self.loading = YES;
         clientCategroy = [[BSClient alloc] initWithDelegate:self action:@selector(requestCategroyDidFinish:obj:)];
-        [clientCategroy getShopCategoryList];
+        [clientCategroy getShopCategoryListWithShopType:_shopType];
         UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:LOADIMAGE(@"商户购物车") forState:UIControlStateNormal];
         button.frame = CGRectMake(self.view.width - 52, self.view.height - 52, 32, 32);
@@ -150,11 +153,12 @@
             currentLocation = [[LocationManager sharedManager] coordinate];
         }
 
-        [client getShopListWithPage:1
-                         categoryid:nil
-                                lat:@(currentLocation.lat).stringValue
-                                lng:@(currentLocation.lng).stringValue
-                               city:city];
+        [client getShopListWithShopType:_shopType
+                                   page:1
+                             categoryid:nil
+                                    lat:@(currentLocation.lat).stringValue
+                                    lng:@(currentLocation.lng).stringValue
+                                   city:city];
     }
 }
 
@@ -183,11 +187,12 @@
         currentLocation = [[LocationManager sharedManager] coordinate];
     }
 
-    [client getShopListWithPage:page
-                     categoryid:nil
-                            lat:@(currentLocation.lat).stringValue
-                            lng:@(currentLocation.lng).stringValue
-                           city:city];
+    [client getShopListWithShopType:_shopType
+                               page:page
+                         categoryid:nil
+                                lat:@(currentLocation.lat).stringValue
+                                lng:@(currentLocation.lng).stringValue
+                               city:city];
 }
 
 - (void)requestCategroyDidFinish:(id)sender obj:(NSDictionary *)obj {
@@ -265,11 +270,12 @@
         currentLocation = [[LocationManager sharedManager] coordinate];
     }
 
-    [client getShopListWithPage:currentPage
-                     categoryid:nil
-                            lat:@(currentLocation.lat).stringValue
-                            lng:@(currentLocation.lng).stringValue
-                           city:city];
+    [client getShopListWithShopType:_shopType
+                               page:currentPage
+                         categoryid:nil
+                                lat:@(currentLocation.lat).stringValue
+                                lng:@(currentLocation.lng).stringValue
+                               city:city];
 }
 
 - (void)imageTouchViewDidSelected:(id)sender {
@@ -369,11 +375,12 @@
             currentLocation = [[LocationManager sharedManager] coordinate];
         }
 
-        [client getShopListWithPage:currentPage
-                         categoryid:nil
-                                lat:@(currentLocation.lat).stringValue
-                                lng:@(currentLocation.lng).stringValue
-                               city:city];
+        [client getShopListWithShopType:_shopType
+                                   page:currentPage
+                             categoryid:nil
+                                    lat:@(currentLocation.lat).stringValue
+                                    lng:@(currentLocation.lng).stringValue
+                                   city:city];
         
         [self touchesBegan:nil withEvent:nil];
     }

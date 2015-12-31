@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _shopType = 0;
     self.title = @"商品类别";
 }
 
@@ -28,7 +29,7 @@
     if (isFirstAppear) {
         if (![ShopCategroy hasData]) {
             [super startRequest];
-            [client getShopCategoryList];
+            [client getShopCategoryListWithShopType:_shopType];
         } else {
             [contentArr removeAllObjects];
             [contentArr addObjectsFromArray:[ShopCategroy getCategoryArray]];

@@ -38,14 +38,17 @@
         arrMenu = @[@"扫码",
                      @"需求",
                      @"订单",
-                    @" 公众号 "];
+                    @" 公众号 ",
+                    @"菜篮子"];
 
         arrClass = @[@"QRcodeReaderViewController",
                     @"DemandViewController",
                     @"OrderViewController",
-                     @"CloudListViewController"];
+                     @"CloudListViewController",
+                     @"MarketMainViewController"];
 
         arrImage = @[@"",
+                     @"",
                      @"",
                      @"",
                      @""];
@@ -151,7 +154,7 @@ const float BANNER_HEIGHT = 129;
 }
 
 - (void)imagePlayerView:(ImagePlayerView *)sender loadImageForImageView:(UIImageView *)imageView index:(NSInteger)index {
-    NSString *imgFile = [NSString stringWithFormat:@"广告素材%d", index + 1];
+    NSString *imgFile = [NSString stringWithFormat:@"广告素材%ld", index + 1];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.image = LOADIMAGE(imgFile);
 //    [imageView  placeholderImage:[Globals getImageDefault]];

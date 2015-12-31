@@ -27,7 +27,7 @@
 
     [self setRightBarButton:@"确定" selector:@selector(comfirmRetreat:)];
     self.navigationItem.title = @"退单";
-
+    _shopType = 0;
     
     UIImage * tfImg = [[UIImage imageNamed:@"bkg_bb_textField"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
     imgTextBackground.image = tfImg;
@@ -60,8 +60,9 @@
     [self popViewController];
     
     if ([super startRequest]) {
-        [client retreatOrder:_order.id
-                  withReason:txtInfo.text];
+        [client retreatOrderWithShopType:_shopType
+                                 orderId:_order.id
+                              withReason:txtInfo.text];
     }
     return YES;
 }

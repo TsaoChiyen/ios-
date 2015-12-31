@@ -364,7 +364,7 @@
 		331306831B8D7CE50083F153 /* GoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3313067F1B8D7CE50083F153 /* GoodDetailViewController.xib */; };
 		331306841B8D7CE50083F153 /* ShopGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331306811B8D7CE50083F153 /* ShopGoodsViewController.m */; };
 		331306871B8D7D100083F153 /* ShoppingCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331306861B8D7D100083F153 /* ShoppingCityViewController.m */; };
-		331306921B8D7DDC0083F153 /* AddCartViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 331306891B8D7DDC0083F153 /* AddCartViewController.mm */; };
+		331306921B8D7DDC0083F153 /* AddCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 331306891B8D7DDC0083F153 /* AddCartViewController.m */; };
 		331306931B8D7DDC0083F153 /* AddCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3313068A1B8D7DDC0083F153 /* AddCartViewController.xib */; };
 		331306941B8D7DDC0083F153 /* ShopCategroyListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313068C1B8D7DDC0083F153 /* ShopCategroyListController.m */; };
 		331306951B8D7DDC0083F153 /* ShopCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3313068E1B8D7DDC0083F153 /* ShopCommentViewController.m */; };
@@ -425,7 +425,6 @@
 		335217E91B8F4BF600E06C4A /* ShopPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335217E71B8F4BF600E06C4A /* ShopPasswordViewController.m */; };
 		335217EA1B8F4BF600E06C4A /* ShopPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335217E81B8F4BF600E06C4A /* ShopPasswordViewController.xib */; };
 		3380B0501BBA86850069A971 /* UniPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3380B04F1BBA86850069A971 /* UniPay.m */; };
-		3380B0531BBA8FCB0069A971 /* libUPPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3380B0521BBA8FCB0069A971 /* libUPPayPlugin.a */; };
 		3388A9101B89A9C200ACD153 /* FinancingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388A90E1B89A9C200ACD153 /* FinancingInfoViewController.m */; };
 		3388A9111B89A9C200ACD153 /* FinancingInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3388A90F1B89A9C200ACD153 /* FinancingInfoViewController.xib */; };
 		3388A9151B8A19FB00ACD153 /* FinancingProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3388A9131B8A19FB00ACD153 /* FinancingProductDetailViewController.m */; };
@@ -442,6 +441,10 @@
 		3399AD151B89567800340100 /* ShoppingCart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3399AD0C1B89567800340100 /* ShoppingCart.m */; };
 		3399AD161B89567800340100 /* ShopService.m in Sources */ = {isa = PBXBuildFile; fileRef = 3399AD0E1B89567800340100 /* ShopService.m */; };
 		3399AD191B8956EF00340100 /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 3399AD181B8956EF00340100 /* Bill.m */; };
+		339BD4A81BD93C1A000BFB7D /* 菜篮子.png in Resources */ = {isa = PBXBuildFile; fileRef = 339BD4A61BD93C1A000BFB7D /* 菜篮子.png */; };
+		339BD4A91BD93C1A000BFB7D /* 菜篮子@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 339BD4A71BD93C1A000BFB7D /* 菜篮子@2x.png */; };
+		339C3E4A1BDB4DE800FFC32D /* MarketMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339C3E491BDB4DE800FFC32D /* MarketMainViewController.m */; };
+		339C3E4E1BDB4E9500FFC32D /* MarketsCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 339C3E4D1BDB4E9500FFC32D /* MarketsCategory.m */; };
 		33E2F09F1B82F296005B5ABF /* 002.png in Resources */ = {isa = PBXBuildFile; fileRef = 33E2EE891B82F295005B5ABF /* 002.png */; };
 		33E2F0A01B82F296005B5ABF /* 002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33E2EE8A1B82F295005B5ABF /* 002@2x.png */; };
 		33E2F0A11B82F296005B5ABF /* actionbar_add_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 33E2EE8C1B82F295005B5ABF /* actionbar_add_icon.png */; };
@@ -1683,7 +1686,7 @@
 		331306851B8D7D100083F153 /* ShoppingCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCityViewController.h; sourceTree = "<group>"; };
 		331306861B8D7D100083F153 /* ShoppingCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCityViewController.m; sourceTree = "<group>"; };
 		331306881B8D7DDC0083F153 /* AddCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCartViewController.h; sourceTree = "<group>"; };
-		331306891B8D7DDC0083F153 /* AddCartViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AddCartViewController.mm; sourceTree = "<group>"; };
+		331306891B8D7DDC0083F153 /* AddCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCartViewController.m; sourceTree = "<group>"; };
 		3313068A1B8D7DDC0083F153 /* AddCartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddCartViewController.xib; sourceTree = "<group>"; };
 		3313068B1B8D7DDC0083F153 /* ShopCategroyListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCategroyListController.h; sourceTree = "<group>"; };
 		3313068C1B8D7DDC0083F153 /* ShopCategroyListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCategroyListController.m; sourceTree = "<group>"; };
@@ -1816,6 +1819,12 @@
 		3399AD0E1B89567800340100 /* ShopService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopService.m; sourceTree = "<group>"; };
 		3399AD171B8956EF00340100 /* Bill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
 		3399AD181B8956EF00340100 /* Bill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
+		339BD4A61BD93C1A000BFB7D /* 菜篮子.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "菜篮子.png"; sourceTree = "<group>"; };
+		339BD4A71BD93C1A000BFB7D /* 菜篮子@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "菜篮子@2x.png"; sourceTree = "<group>"; };
+		339C3E481BDB4DE800FFC32D /* MarketMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketMainViewController.h; sourceTree = "<group>"; };
+		339C3E491BDB4DE800FFC32D /* MarketMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketMainViewController.m; sourceTree = "<group>"; };
+		339C3E4C1BDB4E9500FFC32D /* MarketsCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketsCategory.h; sourceTree = "<group>"; };
+		339C3E4D1BDB4E9500FFC32D /* MarketsCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketsCategory.m; sourceTree = "<group>"; };
 		33E2EE891B82F295005B5ABF /* 002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 002.png; sourceTree = "<group>"; };
 		33E2EE8A1B82F295005B5ABF /* 002@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002@2x.png"; sourceTree = "<group>"; };
 		33E2EE8C1B82F295005B5ABF /* actionbar_add_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionbar_add_icon.png; sourceTree = "<group>"; };
@@ -2355,7 +2364,6 @@
 				302745B21A5A6CF800282582 /* libiconv.2.4.0.dylib in Frameworks */,
 				302741581A5A6C2C00282582 /* libidn.a in Frameworks */,
 				302745B41A5A6CF800282582 /* libresolv.9.dylib in Frameworks */,
-				3380B0531BBA8FCB0069A971 /* libUPPayPlugin.a in Frameworks */,
 				302745B31A5A6CF800282582 /* CoreGraphics.framework in Frameworks */,
 				302745B51A5A6CF800282582 /* libxml2.2.dylib in Frameworks */,
 				302740F41A5A6C2C00282582 /* libbaidumapapi.a in Frameworks */,
@@ -3341,6 +3349,7 @@
 		302741631A5A6C9400282582 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				339BD4AA1BD93E92000BFB7D /* Markets */,
 				331306DD1B8D813E0083F153 /* Servives */,
 				331306B81B8D7F940083F153 /* PriviteManager */,
 				3313067C1B8D72BD0083F153 /* Shopping */,
@@ -3649,6 +3658,7 @@
 		302742121A5A6C9400282582 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				339C3E4B1BDB4E3C00FFC32D /* Markets */,
 				3399ACFE1B89562600340100 /* Shopping */,
 				3399ACF71B89556700340100 /* Financing */,
 				0BF824941B32FF9500B36317 /* YMParameterCellObj.h */,
@@ -3960,7 +3970,7 @@
 				331306981B8D7EA40083F153 /* ShopViewController.h */,
 				331306991B8D7EA40083F153 /* ShopViewController.m */,
 				331306881B8D7DDC0083F153 /* AddCartViewController.h */,
-				331306891B8D7DDC0083F153 /* AddCartViewController.mm */,
+				331306891B8D7DDC0083F153 /* AddCartViewController.m */,
 				3313068A1B8D7DDC0083F153 /* AddCartViewController.xib */,
 				3313068B1B8D7DDC0083F153 /* ShopCategroyListController.h */,
 				3313068C1B8D7DDC0083F153 /* ShopCategroyListController.m */,
@@ -4192,6 +4202,24 @@
 			path = Shopping;
 			sourceTree = "<group>";
 		};
+		339BD4AA1BD93E92000BFB7D /* Markets */ = {
+			isa = PBXGroup;
+			children = (
+				339C3E481BDB4DE800FFC32D /* MarketMainViewController.h */,
+				339C3E491BDB4DE800FFC32D /* MarketMainViewController.m */,
+			);
+			path = Markets;
+			sourceTree = "<group>";
+		};
+		339C3E4B1BDB4E3C00FFC32D /* Markets */ = {
+			isa = PBXGroup;
+			children = (
+				339C3E4C1BDB4E9500FFC32D /* MarketsCategory.h */,
+				339C3E4D1BDB4E9500FFC32D /* MarketsCategory.m */,
+			);
+			path = Markets;
+			sourceTree = "<group>";
+		};
 		33E2EE881B82F295005B5ABF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -4390,6 +4418,8 @@
 		33E2EF0F1B82F296005B5ABF /* Btn */ = {
 			isa = PBXGroup;
 			children = (
+				339BD4A61BD93C1A000BFB7D /* 菜篮子.png */,
+				339BD4A71BD93C1A000BFB7D /* 菜篮子@2x.png */,
 				3316C8051BB8C72F00CBAB81 /* 联系商家2.png */,
 				3316C8061BB8C72F00CBAB81 /* 联系商家2@2x.png */,
 				331307881B8DF0DA0083F153 /*  公众号 .png */,
@@ -4982,7 +5012,7 @@
 		30273F361A5A6BAC00282582 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = dreamisland;
 				TargetAttributes = {
 					30273F3D1A5A6BAC00282582 = {
@@ -5575,6 +5605,7 @@
 				33E2F0A61B82F296005B5ABF /* actionbar_more_icon@2x.png in Resources */,
 				33E2F2851B82F298005B5ABF /* talk_btn_keyboard_d@2x.png in Resources */,
 				33E2F2531B82F297005B5ABF /* QRCodeCorner_LeftTop.png in Resources */,
+				339BD4A91BD93C1A000BFB7D /* 菜篮子@2x.png in Resources */,
 				33E2F0C41B82F296005B5ABF /* bkg_badge.png in Resources */,
 				33E2F0C61B82F296005B5ABF /* bkg_bb_textField.png in Resources */,
 				304CF9241A86114B0006DBD4 /* ShopCell.xib in Resources */,
@@ -5587,6 +5618,7 @@
 				33E2F2861B82F298005B5ABF /* talk_icon_recoder.png in Resources */,
 				33E2F1CB1B82F297005B5ABF /* icon_left.png in Resources */,
 				33E2F2931B82F298005B5ABF /* talk_sound_p4.png in Resources */,
+				339BD4A81BD93C1A000BFB7D /* 菜篮子.png in Resources */,
 				330C1CA01B857A9C00938250 /* GoodsShelfCell.xib in Resources */,
 				33E2F1881B82F297005B5ABF /* 购物车按下.png in Resources */,
 				33E2F1CA1B82F297005B5ABF /* icon_comment_d@2x.png in Resources */,
@@ -5695,6 +5727,7 @@
 				3399AD101B89567800340100 /* Demand.m in Sources */,
 				0BF824BD1B3304C600B36317 /* View+MASAdditions.m in Sources */,
 				302743F61A5A6C9500282582 /* PhotoSeeViewController.m in Sources */,
+				339C3E4E1BDB4E9500FFC32D /* MarketsCategory.m in Sources */,
 				302740FE1A5A6C2C00282582 /* ImageGridView.m in Sources */,
 				302741441A5A6C2C00282582 /* DDList.m in Sources */,
 				3027413B1A5A6C2C00282582 /* XMPPElement.m in Sources */,
@@ -5806,6 +5839,7 @@
 				3027414A1A5A6C2C00282582 /* GCDAsyncSocket.m in Sources */,
 				330C8AB91B8ACEBB000CC775 /* AddRepaymentBillViewController.m in Sources */,
 				3027414F1A5A6C2C00282582 /* DDTTYLogger.m in Sources */,
+				339C3E4A1BDB4DE800FFC32D /* MarketMainViewController.m in Sources */,
 				0BF824D61B3310EB00B36317 /* SEFilterControl.m in Sources */,
 				302741101A5A6C2C00282582 /* LDProgressView.m in Sources */,
 				335217E51B8ED8FD00E06C4A /* ExbitionMainViewController.m in Sources */,
@@ -5961,7 +5995,7 @@
 				3313073C1B8D82FE0083F153 /* OrderManagerViewController.m in Sources */,
 				3399AD151B89567800340100 /* ShoppingCart.m in Sources */,
 				302740F81A5A6C2C00282582 /* Statement.m in Sources */,
-				331306921B8D7DDC0083F153 /* AddCartViewController.mm in Sources */,
+				331306921B8D7DDC0083F153 /* AddCartViewController.m in Sources */,
 				302740FB1A5A6C2C00282582 /* GTMBase64Coder.m in Sources */,
 				3027411C1A5A6C2C00282582 /* SDImageCache.m in Sources */,
 			);
@@ -5987,10 +6021,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: beijing youhuiledong Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: beijing youhuiledong Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INPUT_FILETYPE = sourcecode.c.objc;
@@ -6021,7 +6056,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "05f52bd5-ff2e-4c8d-b746-9d945f6377cd";
+				PROVISIONING_PROFILE = "1db67f1d-b91d-4630-a881-a2479df68f1a";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -6043,8 +6078,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: beijing youhuiledong Technology Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: beijing youhuiledong Technology Co., Ltd.";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -6071,7 +6106,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "05f52bd5-ff2e-4c8d-b746-9d945f6377cd";
+				PROVISIONING_PROFILE = "1db67f1d-b91d-4630-a881-a2479df68f1a";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -6082,12 +6117,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/weiyuan",
 				);
 				INFOPLIST_FILE = weiyuan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6099,6 +6135,7 @@
 					"$(PROJECT_DIR)/UPPaySDK/libs",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dreamisland.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = chengxin;
 				PROVISIONING_PROFILE = "1db67f1d-b91d-4630-a881-a2479df68f1a";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -6110,12 +6147,13 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/weiyuan",
 				);
 				INFOPLIST_FILE = weiyuan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6127,6 +6165,7 @@
 					"$(PROJECT_DIR)/UPPaySDK/libs",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dreamisland.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = chengxin;
 				PROVISIONING_PROFILE = "1db67f1d-b91d-4630-a881-a2479df68f1a";
 				VALID_ARCHS = "arm64 armv7 armv7s";

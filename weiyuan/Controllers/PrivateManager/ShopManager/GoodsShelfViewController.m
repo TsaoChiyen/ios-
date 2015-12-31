@@ -45,6 +45,7 @@
 
     arrStatus = @[@"所有状态",@"未上架",@"已上架"];
     currentStatus = 0;
+    _shopType = 0;
     
     self.navigationItem.title = @"商品上架管理";
     headerView = self.headerBar;
@@ -64,7 +65,7 @@
         
         if (![ShopCategroy hasData]) {
             clientCategory = [[BSClient alloc] initWithDelegate:self action:@selector(requestCategroyDidFinish:obj:)];
-            [clientCategory getShopCategoryList];
+            [clientCategory getShopCategoryListWithShopType:_shopType];
         }
 
         [self requestData];

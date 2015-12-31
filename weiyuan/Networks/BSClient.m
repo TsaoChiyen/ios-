@@ -1685,13 +1685,14 @@
  *	address 地址
  *	content 备注
  */
-- (void)submitOrder:(NSString *)goods
-               type:(NSString *)type
-             shopid:(NSString *)shopid
-           username:(NSString *)username
-              phone:(NSString *)phone
-            address:(NSString *)address
-            content:(NSString *)content
+- (void)submitOrderWithShopType:(int)shopType
+                          goods:(NSString *)goods
+                           type:(NSString *)type
+                         shopid:(NSString *)shopid
+                       username:(NSString *)username
+                          phone:(NSString *)phone
+                        address:(NSString *)address
+                        content:(NSString *)content
 {
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
 
@@ -1706,10 +1707,43 @@
         [params setObject:content forKey:@"content"];
     }
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/submitOrder"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/submitOrder"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/submitOrder"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
+}
+
+/**
+ *	Copyright © 2014 sam Inc. All rights reserved.
+ *
+ *	订单付款
+ *	orderid 订单ID
+ */
+- (void)payOrderWithShopType:(NSInteger)shopType
+                     orderId:(NSString *)orderid
+{
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    
+    [params setObject:orderid forKey:@"id"];
+    
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/orderPay"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/orderPay"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -1719,13 +1753,20 @@
  *	商户类别
  *
  */
-- (void)getShopCategoryList {
+- (void)getShopCategoryListWithShopType:(int)shopType {
     needUID = NO;
 
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/categroyList"
-                         params:nil
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/categroyList"
+                             params:nil
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/categroyList"
+                             params:nil
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -1734,13 +1775,20 @@
  *	商区列表
  *
  */
-- (void)getShopAreaList
+- (void)getShopAreaListWithShopType:(int)shopType
 {
     needUID = NO;
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/areaList"
-                         params:nil
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/areaList"
+                             params:nil
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/areaList"
+                             params:nil
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -1749,10 +1797,11 @@
  *	商家列表
  *
  */
-- (void)getShopListWithPage:(int)page
-                 categoryid:(NSString *)categoryid
-                        lat:(NSString *)lat
-                        lng:(NSString *)lng
+- (void)getShopListWithShopType:(int)shopType
+                           page:(int)page
+                     categoryid:(NSString *)categoryid
+                            lat:(NSString *)lat
+                            lng:(NSString *)lng
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:categoryid forKey:@"categoryid"];
@@ -1768,10 +1817,17 @@
     
     [params setObject:[[[BSEngine currentEngine] user] uid] forKey:@"uid"];
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/shopList"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/shopList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/shopList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -1782,11 +1838,12 @@
  *  @param categoryid   商品分类id
  *  @param areaId       商品区域id
  */
-- (void)getShopListWithPage:(NSInteger)page
-                 categoryid:(NSString *)categoryid
-                        lat:(NSString *)lat
-                        lng:(NSString *)lng
-                       city:(NSString *)city
+- (void)getShopListWithShopType:(int)shopType
+                           page:(NSInteger)page
+                     categoryid:(NSString *)categoryid
+                            lat:(NSString *)lat
+                            lng:(NSString *)lng
+                           city:(NSString *)city
 {
 //    if (!categoryid && !areaId) {
 //        return;
@@ -1815,10 +1872,17 @@
     
     [params setObject:[[[BSEngine currentEngine] user] uid] forKey:@"uid"];
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/shopList"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/shopList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/shopList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -1829,13 +1893,21 @@
  *  @param shopid   商家 ID
  *
  */
-- (void)getShopByShopId:(NSString *)shopid {
+- (void)getShopWithShopType:(int)shopType shopId:(NSString *)shopid {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:shopid forKey:@"shopid"];
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/Api/shopDetail"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/Api/shopDetail"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/Api/shopDetail"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -1847,13 +1919,21 @@
  *  @param goodsid   商品 ID
  *
  */
-- (void)getShopDetail:(NSString *)goodsid{
+- (void)getShopDetailWithShopType:(int)shopType goodsId:(NSString *)goodsid{
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:goodsid forKey:@"goodid"];
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/detail"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/detail"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/detail"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -1869,11 +1949,12 @@
  *  @param page
  *
  */
-- (void)getGoodsListWithShopId:(NSString *)shopid
-                    categoryId:(NSString *)categoryid
-                          city:(NSString *)city
-                          sort:(NSString *)sort
-                          page:(NSInteger)page
+- (void)getGoodsListWithShopType:(int)shopType
+                          shopId:(NSString *)shopid
+                      categoryId:(NSString *)categoryid
+                            city:(NSString *)city
+                            sort:(NSString *)sort
+                            page:(NSInteger)page
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
 
@@ -1886,10 +1967,17 @@
     if (sort)       [params setObject:sort          forKey:@"sort"];
     if (city > 0)   [params setObject:city          forKey:@"city"];
 
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/api/goodsList"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/api/goodsList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/api/goodsList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -2504,9 +2592,10 @@
  *  @param type             用户角色 1： 商家，2： 买家
  *
  */
--(void)getOrderListWithPage:(NSInteger)page
-                  andStatus:(NSInteger)status
-                    andType:(NSInteger)type
+-(void)getOrderListWithShopType:(NSInteger)shopType
+                           page:(NSInteger)page
+                      andStatus:(NSInteger)status
+                        andType:(NSInteger)type
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
@@ -2520,10 +2609,17 @@
         [params setObject:@(status).stringValue forKey:@"status"];
     }
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/Api/orderList"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/Api/orderList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/Api/orderList"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -2543,18 +2639,26 @@
  *                  9:已结款
  *
  */
--(void)updateOrder:(NSString *)orderId
-        withStatus:(NSString *)status
+-(void)updateOrderWithShopType:(NSInteger)shopType
+                       orderId:(NSString *)orderId
+                    withStatus:(NSString *)status
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     [params setObject:orderId forKey:@"id"];
     [params setObject:status forKey:@"status"];
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/Api/orderStatus"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -2567,8 +2671,9 @@
  *  @note status     5:已退单
  *
  */
--(void)retreatOrder:(NSString *)orderId
-        withReason:(NSString *)reason
+-(void)retreatOrderWithShopType:(NSInteger)shopType
+                        orderId:(NSString *)orderId
+                     withReason:(NSString *)reason
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
@@ -2576,10 +2681,17 @@
     [params setObject:@"5" forKey:@"status"];
     [params setObject:reason forKey:@"content"];
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/Api/orderStatus"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -2593,9 +2705,10 @@
  *  @note status        2:已发货
  *
  */
--(void)deliveryOrder:(NSString *)orderId
-         withLogistics:(NSString *)logistics
-          adnWaybill:(NSString *)waybill
+-(void)deliveryOrderWithShopType:(NSInteger)shopType
+                         orderId:(NSString *)orderId
+                   withLogistics:(NSString *)logistics
+                      adnWaybill:(NSString *)waybill
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
@@ -2605,10 +2718,17 @@
     [params setObject:logistics forKey:@"logcompany"];
     [params setObject:waybill forKey:@"lognumber"];
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/Api/orderStatus"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 /**
@@ -2620,7 +2740,8 @@
  *  @note status        10:已收货
  *
  */
--(void)recieveGoodsByOrderId:(NSString *)orderId
+-(void)recieveGoodsWithShopType:(NSInteger)shopType
+                        orderId:(NSString *)orderId
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
@@ -2628,10 +2749,17 @@
     [params setObject:@"2" forKey:@"type"];
     [params setObject:@"6" forKey:@"status"];
     
-    [self loadRequestWithDoMain:YES
-                     methodName:@"shop/Api/orderStatus"
-                         params:params
-                   postDataType:KSTRequestPostDataTypeNormal];
+    if (shopType == 0) {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"shop/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    } else {
+        [self loadRequestWithDoMain:YES
+                         methodName:@"basket/Api/orderStatus"
+                             params:params
+                       postDataType:KSTRequestPostDataTypeNormal];
+    }
 }
 
 #pragma mark - Seller Relative

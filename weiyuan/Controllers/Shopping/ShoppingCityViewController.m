@@ -72,6 +72,7 @@
 
     currentSort = 1;
     currentSearch = 0;
+    _shopType = 0;
     
     contentGoods = [NSMutableArray array];
     [contentArr addObject:@"0"];
@@ -129,10 +130,10 @@
         if (![ShopCategroy hasData]) {
             self.loading = YES;
             BSClient *clientCategory = [[BSClient alloc] initWithDelegate:self action:@selector(requestCategoryDidFinish:obj:)];
-            [clientCategory getShopCategoryList];
+            [clientCategory getShopCategoryListWithShopType:_shopType];
 
             BSClient *clientArea = [[BSClient alloc] initWithDelegate:self action:@selector(requestAreaDidFinish:obj:)];
-            [clientArea getShopAreaList];
+            [clientArea getShopAreaListWithShopType:_shopType];
         }
         
         if (currentSearch == 0) {
@@ -434,11 +435,12 @@
     [super startRequest];
     
     if (currentSearch == 0) {
-        [client getGoodsListWithShopId:nil
-                            categoryId:@(currentCategoryId).stringValue
-                                  city:currentCity
-                                  sort:@(currentSort).stringValue
-                                  page:1];
+        [client getGoodsListWithShopType:_shopType
+                                  shopId:nil
+                              categoryId:@(currentCategoryId).stringValue
+                                    city:currentCity
+                                    sort:@(currentSort).stringValue
+                                    page:1];
     } else {
         Location currentLocation;
         
@@ -446,11 +448,12 @@
             currentLocation = [[LocationManager sharedManager] coordinate];
         }
         
-        [client getShopListWithPage:1
-                         categoryid:nil
-                                lat:@(currentLocation.lat).stringValue
-                                lng:@(currentLocation.lng).stringValue
-                               city:currentShopCity];
+        [client getShopListWithShopType:_shopType
+                                   page:1
+                             categoryid:nil
+                                    lat:@(currentLocation.lat).stringValue
+                                    lng:@(currentLocation.lng).stringValue
+                                   city:currentShopCity];
     }
 }
 
@@ -694,7 +697,7 @@
     cell.priceLabel.width = cell.width;
     cell.priceLabel.left = 0;
     cell.priceLabel.textAlignment = NSTextAlignmentCenter;
-    cell.shop = [NSString stringWithFormat:@"已售 %d 件", item.number.integerValue];
+    cell.shop = [NSString stringWithFormat:@"已售 %ld 件", item.number.integerValue];
     cell.shopLabel.hidden = YES;
 
     if (item.picture.count) {
@@ -719,7 +722,8 @@
 -(void)collectionView:(UICollectionView *)sender didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     BSClient *shopRequst = [[BSClient alloc] initWithDelegate:self action:@selector(requestShopDidFinish:obj:)];
     currentGoods = [contentGoods objectAtIndex:indexPath.row];
-    [shopRequst getShopByShopId:currentGoods.shopid];
+    [shopRequst getShopWithShopType:_shopType
+                             shopId:currentGoods.shopid];
 }
 
 - (BOOL)requestShopDidFinish:(id)sender obj:(NSDictionary *)obj

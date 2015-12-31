@@ -11,4 +11,5 @@
 
 @interface AddCartViewController : BaseViewController
 @property (nonatomic, strong) Shop * shop;
+@property (nonatomic, assign) int shopType;
 @end

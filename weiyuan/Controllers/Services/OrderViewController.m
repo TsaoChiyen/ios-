@@ -32,6 +32,7 @@
     [self setEdgesNone];
 
     self.navigationItem.title = @"订单";
+    _shopType = 0;
 
     [self setRightBarButtonImage:LOADIMAGE(@"actionbar_more_icon") highlightedImage:nil selector:@selector(chooseStatus:)];
 }
@@ -45,6 +46,12 @@
         menuView.tag = 0;
         [menuView showInView:self.view origin:CGPointMake(tableView.width - MENUVIEW_WIDTH, 0)];
     }
+}
+
+- (void)prepareLoadMoreWithPage:(int)page sinceID:(int)sinceID {
+    [client getOrderListWithShopType:_shopType
+                                page:1
+                           andStatus:currentStatus andType:2];
 }
 
 #pragma mark - MenuViewDelegate
@@ -71,8 +78,12 @@
 - (void)requestData {
     self.loading = YES;
     [super startRequest];
-    [client getOrderListWithPage:1
-                       andStatus:currentStatus andType:2];
+    
+    [contentArr removeAllObjects];
+
+    [client getOrderListWithShopType:_shopType
+                                page:1
+                           andStatus:currentStatus andType:2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,8 +95,6 @@
 - (BOOL)requestDidFinish:(id)sender obj:(NSDictionary *)obj {
     if ([super requestDidFinish:sender obj:obj]) {
         NSArray *array = [obj getArrayForKey:@"data"];
-
-        [contentArr removeAllObjects];
         
         if (array && array.count) {
             [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -176,7 +185,7 @@
         }];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@%@ %d件商品", name, order.goods.count > 1 ? @"等":@"", total];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@%@ %ld件商品", name, order.goods.count > 1 ? @"等":@"", total];
     
     cell.detailTextLabel.text = [Globals convertDateFromString:order.createtime timeType:1];
     cell.labOther.text = [NSString stringWithFormat:@"%@\n\n%0.2f", [order getStatusString], totalPrice];

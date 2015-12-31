@@ -17,12 +17,13 @@
 #import "Globals.h"
 #import "TextEditController.h"
 #import "Session.h"
-//#import "TalkingViewController.h"
+#import "UniPay.h"
+#import "UPPayPlugin.h"
 #import "BSClient.h"
 
 static NSString * cellIdentifier = @"OrderGoodsCell";
 
-@interface OrderSubviewController () < OrderCustomerCellDelegate >
+@interface OrderSubviewController () < OrderCustomerCellDelegate, UPPayPluginDelegate >
 {
     UILabel                 * lblOrder;
     float                   totals;
@@ -44,7 +45,8 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
     // Do any additional setup after loading the view.
     [self setEdgesNone];
     self.navigationItem.title = @"详细订单";
-
+    _shopType = 0;
+    
     tableView.tableFooterView = self.footerView;
 }
 
@@ -180,6 +182,7 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
     
     switch (sender.tag) {
         case 0:     //  pay
+            [self payForOrder];
             break;
         case 1:     //  address
         {
@@ -199,12 +202,58 @@ static NSString * cellIdentifier = @"OrderGoodsCell";
         {
             BSClient *clientRecieve = [[BSClient alloc] initWithDelegate:self action:@selector(requestDidFinish:obj:)];
             
-            [clientRecieve recieveGoodsByOrderId:_data.id];
+            [clientRecieve recieveGoodsWithShopType:_shopType
+                                            orderId:_data.id];
         }
             break;
         default:
             break;
     }
+}
+
+- (void) payForOrder {
+    BSClient *payOrder = [[BSClient alloc] initWithDelegate:self action:@selector(requestPayFinish:obj:)];
+    
+    [payOrder payOrderWithShopType:_shopType
+                           orderId:_data.id];
+}
+
+- (BOOL)requestPayFinish:(id)sender obj:(NSDictionary *)obj {
+    if ([super requestDidFinish:sender obj:obj]) {
+        UniPay *uniPay = [UniPay objWithJsonDic:[obj objectForKey:@"data"]];
+        
+        if (uniPay) {
+            if (uniPay.tn &&
+                uniPay.tn.length > 0 &&
+                ![uniPay.tn isEqual:@"0"]) {
+                [self startUPPayWithPayTN:uniPay.tn];
+            }
+        }
+    }
+
+    return YES;
+}
+
+- (void)startUPPayWithPayTN:(NSString *)payTN {
+    if (payTN == nil || payTN.length == 0) {
+        return;
+    }
+    
+    [UPPayPlugin startPay:payTN mode:@"01" viewController:self delegate:self];
+}
+
+-(void)UPPayPluginResult:(NSString*)result {
+    NSString *msg = @"";
+    
+    if ([result isEqual:@"success"]) {
+        msg = @"支付成功！";
+    } else if ([result isEqual:@"fail"]) {
+        msg = @"支付失败！";
+    } else if ([result isEqual:@"cancel"]) {
+        msg = @"用户取消了支付";
+    }
+    
+    [self showText:msg];
 }
 
 - (UILabel *)labelInActionView:(UIView*)view title:(NSString *)text {

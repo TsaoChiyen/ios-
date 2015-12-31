@@ -9,5 +9,5 @@
 #import "BaseTableViewController.h"
 
 @interface OrderViewController : BaseTableViewController
-
+@property (nonatomic, assign) int shopType;
 @end

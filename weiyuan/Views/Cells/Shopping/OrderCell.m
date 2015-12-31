@@ -52,7 +52,7 @@
         
         labelSerial.text = @(self.indexPath.row + 1).stringValue;
         labelOrderNo.text = [NSString stringWithFormat:@"订单号:%@", _order.ordersn];
-        labelDetail.text = [NSString stringWithFormat:@"总金额:%0.2f元  共计%d件商品\n下单时间:%@", totals, total,  createTime];
+        labelDetail.text = [NSString stringWithFormat:@"总金额:%0.2f元  共计%ld件商品\n下单时间:%@", totals, total,  createTime];
         labelStatus.text = [_order getStatusString];
     }
 }

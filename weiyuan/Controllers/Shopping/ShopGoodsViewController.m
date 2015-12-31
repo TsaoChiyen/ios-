@@ -31,6 +31,7 @@
     self.navigationItem.title = _shop.name;
     [self enableSlimeRefresh];
     [self setEdgesNone];
+    _shopType = 0;
     headImageViewSize = 200;
     footerView = [[UIView alloc] init];
     phoneLabel = [[UILabel alloc] init];
@@ -57,11 +58,12 @@
     [super viewDidAppear:YES];
     if (isFirstAppear) {
         [super startRequest];
-        [client getGoodsListWithShopId:_shop.id
-                            categoryId:0
-                                  city:nil
-                                  sort:nil
-                                  page:currentPage];
+        [client getGoodsListWithShopType:_shopType
+                                  shopId:_shop.id
+                              categoryId:0
+                                    city:nil
+                                    sort:nil
+                                    page:currentPage];
 
         CGSize size = [addrLabel.text sizeWithFont:addrLabel.font maxWidth:self.view.width - 20 maxNumberLines:0];
         addrLabel.frame = CGRectMake(10, 30, self.view.width - 50 - 20, size.height);
@@ -85,11 +87,12 @@
 }
 
 - (void)prepareLoadMoreWithPage:(int)page sinceID:(int)sinceID {
-    [client getGoodsListWithShopId:_shop.id
-                        categoryId:0
-                              city:nil
-                              sort:nil
-                              page:page];
+    [client getGoodsListWithShopType:_shopType
+                              shopId:_shop.id
+                          categoryId:0
+                                city:nil
+                                sort:nil
+                                page:page];
 }
 
 - (BOOL)requestDidFinish:(BSClient *)sender obj:(NSDictionary *)obj {

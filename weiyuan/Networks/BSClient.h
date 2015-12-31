@@ -845,20 +845,31 @@
  *	address 地址
  *	content 备注
  */
-- (void)submitOrder:(NSString *)goods
-               type:(NSString *)type
-             shopid:(NSString *)shopid
-           username:(NSString *)username
-              phone:(NSString *)phone
-            address:(NSString *)address
-            content:(NSString *)content;
+- (void)submitOrderWithShopType:(int)shopType
+                          goods:(NSString *)goods
+                           type:(NSString *)type
+                         shopid:(NSString *)shopid
+                       username:(NSString *)username
+                          phone:(NSString *)phone
+                        address:(NSString *)address
+                        content:(NSString *)content;
+
+/**
+ *	Copyright © 2014 sam Inc. All rights reserved.
+ *
+ *	订单付款
+ *	orderid 订单ID
+ */
+- (void)payOrderWithShopType:(NSInteger)shopType
+                     orderId:(NSString *)orderid;
+
 /**
  *	Copyright © 2014 sam Inc. All rights reserved.
  *
  *	商户类别
  *
  */
-- (void)getShopCategoryList;
+- (void)getShopCategoryListWithShopType:(int)shopType;
 
 /**
  *	Copyright © 2015 tcy@dreamisland. All rights reserved.
@@ -866,7 +877,7 @@
  *	商区列表
  *
  */
-- (void)getShopAreaList;
+- (void)getShopAreaListWithShopType:(int)shopType;
 
 /**
  *	Copyright © 2014 sam Inc. All rights reserved.
@@ -874,10 +885,11 @@
  *	商家列表
  *
  */
-- (void)getShopListWithPage:(int)page
-                 categoryid:(NSString *)categoryid
-                        lat:(NSString *)lat
-                        lng:(NSString *)lng;
+- (void)getShopListWithShopType:(int)shopType
+                           page:(int)page
+                     categoryid:(NSString *)categoryid
+                            lat:(NSString *)lat
+                            lng:(NSString *)lng;
 
 
 /**
@@ -888,11 +900,12 @@
  *  @param categoryid   商品分类id
  *  @param city         商品区域
  */
-- (void)getShopListWithPage:(NSInteger)page
-                 categoryid:(NSString *)categoryid
-                        lat:(NSString *)lat
-                        lng:(NSString *)lng
-                       city:(NSString *)city;
+- (void)getShopListWithShopType:(int)shopType
+                           page:(NSInteger)page
+                     categoryid:(NSString *)categoryid
+                            lat:(NSString *)lat
+                            lng:(NSString *)lng
+                           city:(NSString *)city;
 
 /**
  *	Copyright © 2015 tcy@dreamisland. All rights reserved.
@@ -902,7 +915,7 @@
  *  @param shopid   商家 ID
  *
  */
-- (void)getShopByShopId:(NSString *)shopid;
+- (void)getShopWithShopType:(int)shopType shopId:(NSString *)shopid;
 
 /**
  *	Copyright © 2014 sam Inc. All rights reserved.
@@ -910,7 +923,7 @@
  *	商品详细
  *
  */
-- (void)getShopDetail:(NSString *)shopid;
+- (void)getShopDetailWithShopType:(int)shopType goodsId:(NSString *)goodsid;
 
 /**
  *	Copyright © 2014 sam Inc. All rights reserved.
@@ -924,11 +937,12 @@
  *  @param page
  *
  */
-- (void)getGoodsListWithShopId:(NSString *)shopid
-                    categoryId:(NSString *)categoryid
-                          city:(NSString *)city
-                          sort:(NSString *)sort
-                          page:(NSInteger)page;
+- (void)getGoodsListWithShopType:(int)shopType
+                          shopId:(NSString *)shopid
+                      categoryId:(NSString *)categoryid
+                            city:(NSString *)city
+                            sort:(NSString *)sort
+                            page:(NSInteger)page;
 
 /**
  *	Copyright © 2014 sam Inc. All rights reserved.
@@ -1177,9 +1191,10 @@
  *  @param type             用户角色 1： 商家，2： 买家
  *
  */
--(void)getOrderListWithPage:(NSInteger)page
-                  andStatus:(NSInteger)status
-                    andType:(NSInteger)type;
+-(void)getOrderListWithShopType:(NSInteger)shopType
+                           page:(NSInteger)page
+                      andStatus:(NSInteger)status
+                        andType:(NSInteger)type;
 
 /**
  *	@Copyright © 2015 tcy@dreamisland. All rights reserved.
@@ -1198,8 +1213,9 @@
  *                  9:已结款
  *
  */
--(void)updateOrder:(NSString *)orderId
-        withStatus:(NSString *)status;
+-(void)updateOrderWithShopType:(NSInteger)shopType
+                       orderId:(NSString *)orderId
+                    withStatus:(NSString *)status;
 
 
 /**
@@ -1212,8 +1228,9 @@
  *  @note status     5:已退单
  *
  */
--(void)retreatOrder:(NSString *)orderId
-         withReason:(NSString *)reason;
+-(void)retreatOrderWithShopType:(NSInteger)shopType
+                        orderId:(NSString *)orderId
+                     withReason:(NSString *)reason;
 
 /**
  *	@Copyright © 2015 tcy@dreamisland. All rights reserved.
@@ -1226,9 +1243,10 @@
  *  @note status        2:已发货
  *
  */
--(void)deliveryOrder:(NSString *)orderId
-       withLogistics:(NSString *)logistics
-          adnWaybill:(NSString *)waybill;
+-(void)deliveryOrderWithShopType:(NSInteger)shopType
+                         orderId:(NSString *)orderId
+                   withLogistics:(NSString *)logistics
+                      adnWaybill:(NSString *)waybill;
 
 /**
  *	@Copyright © 2015 tcy@dreamisland. All rights reserved.
@@ -1239,7 +1257,8 @@
  *  @note status        10:已收货
  *
  */
--(void)recieveGoodsByOrderId:(NSString *)orderId;
+-(void)recieveGoodsWithShopType:(NSInteger)shopType
+                        orderId:(NSString *)orderId;
 
 #pragma mark - Seller Relative
 
